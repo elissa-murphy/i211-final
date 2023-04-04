@@ -11,5 +11,6 @@ require_once ("application/config.php");
 //load autoloader
 require_once ("vendor/autoload.php");
 //test
+//test 2
 //load the dispatcher that dissects a request URL
 new Dispatcher();
