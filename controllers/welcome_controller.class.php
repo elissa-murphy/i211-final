@@ -1,6 +1,11 @@
 <?php
 
-class WelcomeController
-{
-
+class WelcomeController {
+    public function index(){
+        $view = new WelcomeIndex();
+        $view->display();
+    }
 }
+
+
+
