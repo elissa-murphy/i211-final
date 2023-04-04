@@ -1,6 +1,8 @@
 <?php
 
-class BikeModel
-{
+class BikeModel {
+
+    //NEED TO DO THIS FOR THE BIKE PAGE!
+    //REFERRING TO KUNGFU MVC PRACTICE
 
 }
