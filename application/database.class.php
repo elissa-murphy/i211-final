@@ -7,8 +7,8 @@ class Database {
         'host' => 'localhost',
         'login' => 'phpuser',
         'password' => 'phpuser',
-        'database' => 'i211final_db',
-        'tblBike' => 'bikes',
+        'database' => 'bikes_db',
+        'tblBikes' => 'bikes',
         'tblTires' => 'tires',
         'tblAccessories' => 'accessories'
     );
@@ -40,9 +40,17 @@ class Database {
         return $this->objDBConnection;
     }
 
-    //returns the name of the table that stores movies
+    //returns the name of the table that stores bikes
     public function getBikeTable() {
-        return $this->param['tblBike'];
+        return $this->param['tblBikes'];
+    }
+
+    public function getTireTable() {
+        return $this->param['tblTires'];
+    }
+
+    public function getAccessoriesTable() {
+        return $this->param['tblAccessories'];
     }
 
 }

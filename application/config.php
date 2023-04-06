@@ -20,7 +20,7 @@ define("BASE_URL", "http://localhost/I211/final/i211-final");
 
 
 /*************************************************************************************
- *                       settings for movies                                         *
+ *                       settings for bikes                                         *
  ************************************************************************************/
 
 //define default path for media images

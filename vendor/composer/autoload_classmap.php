@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Bike' => $baseDir . '/models/bike.class.php',
     'BikeController' => $baseDir . '/controllers/bike_controller.class.php',
     'BikeDetail' => $baseDir . '/views/bike/detail/bike_detail.class.php',
     'BikeIndex' => $baseDir . '/views/bike/index/bike_index.class.php',

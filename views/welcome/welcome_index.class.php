@@ -37,15 +37,15 @@ class WelcomeIndex extends IndexView {
             <p>Explore our bikes, tires, and accessories</p>
 
             <a href="<?= BASE_URL ?>/bike/index">
-<!--                <img src="--><?//= BASE_URL ?><!--/www/img/movies.jpg" title="Movie Library"/>-->
+<!--                <img src="--><?//= BASE_URL ?><!--/www/img/bikess.jpg" title="Bike Library"/>-->
                 <div>Bikes</div>
             </a>
             <a href="<?= BASE_URL ?>/tire/index">
-<!--                <img src="--><?//= BASE_URL ?><!--/www/img/books.jpg" title="Book Library"/>-->
+<!--                <img src="--><?//= BASE_URL ?><!--/www/img/tires.jpg" title="Tire Library"/>-->
                 <div>Tires</div>
             </a>
             <a href="<?= BASE_URL ?>/accessories/index">
-<!--                <img src="--><?//= BASE_URL ?><!--/www/img/games.jpg" title="Game Library" />-->
+<!--                <img src="--><?//= BASE_URL ?><!--/www/img/accessories.jpg" title="Accessories Library" />-->
                 <div>Accessories</div>
             </a>
         </div>
