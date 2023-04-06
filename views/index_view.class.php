@@ -23,17 +23,24 @@ class IndexView {
             </script>
         </head>
         <body>
-        <div id="top"></div>
             <div id='wrapper'>
-                 <div id="banner">
+                 <div id="banner" style="background-color: black; padding: 20px;  display: flex; margin: 0 auto; justify-content: space-evenly;">
                     <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Bike Shop">
                          <div id="left">
 <!--                    <img src='--><?//= BASE_URL ?><!--/www/img/logo.png' style="width: 180px; border: none" />-->
-                             <span style='color: #000; font-size: 36pt; font-weight: bold; vertical-align: top'>Bike shop!</span>
+                             <span style='color: #fffffa; font-size: 36pt; font-weight: bold; vertical-align: top'>The Bike shop.</span>
                         </div>
                     </a>
-                     <div id="right">
-<!--                <img src="--><?//= BASE_URL ?><!--/www/img/kungfupanda.png" style="width: 400px; border: none" />-->
+                     <div id="right" style="display: flex;">
+                  <a style="color: white;" href="<?= BASE_URL ?>/bike/index">
+                         <div>Bikes</div>
+                         </a>
+                         <a style="color: white; padding: 0px 15px;" href="<?= BASE_URL ?>/tire/index">
+                             <div>Tires</div>
+                         </a>
+                         <a style="color: white;" href="<?= BASE_URL ?>/accessories/index">
+                             <div>Accessories</div>
+                         </a>
                      </div>
         </div>
         <?php
@@ -45,7 +52,7 @@ class IndexView {
                         <br><br><br>
                         <div id="push"></div>
                     </div>
-                <div id="footer"><br>&copy 2023 Bike Shop. All Rights Reserved.</div>
+                <div id="footer" style="text-align: center;">&copy 2023 Bike Shop. All Rights Reserved.</div>
                 <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
             </body>
         </html>
