@@ -14,7 +14,7 @@ class BikeController
     //index action that displays all bikes
     public function index() {
         //retrieve all bikes and store them in an array
-        $bikes = $this->bike_model->list_bike();
+        $bikes = $this->bike_model->display_bike();
         if (!$bikes) {
             //display an error
             $message = "There was a problem displaying bikes.";
