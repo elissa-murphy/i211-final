@@ -28,35 +28,51 @@ class BikeDetail extends BikeIndexView {
 //        }
         ?>
 
-        <div id="main-header">Bike Details</div>
-        <hr>
+        <h2 id="main-header"><?= $name ?> Details</h2>
         <!-- display bike details in a table -->
-        <table id="detail">
-            <tr>
-                <td style="width: 150px;">
-<!--                    <img src="--><?//= $image ?><!--" alt="--><?//= $title ?><!--" />-->
-                </td>
-                <td style="width: 130px;">
-                    <p><strong>Name:</strong></p>
-                    <p><strong>Maker:</strong></p>
-                    <p><strong>Description:</strong></p>
-                    <p><strong>Price:</strong></p>
-<!--                    <div id="button-group">-->
-<!--                        <input type="button" id="edit-button" value="   Edit   "-->
-<!--                               onclick="window.location.href = '--><?//= BASE_URL ?>///bike/edit/<?//= $id ?>//'">&nbsp;
-//                    </div>
-                </td>
-                <td>
+<!--        <table id="detail">-->
+<!--            <tr>-->
+<!--                <td style="width: 150px;">-->
+<!--                   <img src="--><?////= $image ?><!--" alt="--><?////= $title ?><!--" />-->
+<!--                </td>-->
+<!--                <td style="width: 130px;">-->
+<!--                    <p><strong>Name:</strong></p>-->
+<!--                    <p><strong>Maker:</strong></p>-->
+<!--                    <p><strong>Description:</strong></p>-->
+<!--                    <p><strong>Price:</strong></p>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <p>--><?//= $name ?><!--</p>-->
+<!--                    <p>--><?//= $maker ?><!--</p>-->
+<!--                    <p>--><?//= $description ?><!--</p>-->
+<!--                    <p>--><?//= $price ?><!--</p>-->
+<!--                    <div id="confirm-message">--><?//= $confirm ?><!--</div>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        </table>-->
+
+<div style="padding-bottom: 150px;">
+        <div style="display: flex; justify-content: space-evenly;">
+            <div>
+                <div style="width: 350px; height: 350px;"></div>
+            </div>
+            <div>
+                <div style="display: flex; justify-content: space-evenly;">
                     <p><?= $name ?></p>
                     <p><?= $maker ?></p>
-                    <p><?= $description ?></p>
                     <p><?= $price ?></p>
-                    <div id="confirm-message"><?= $confirm ?></div>
-                </td>
-            </tr>
-        </table>
-        <a href="<?= BASE_URL ?>/bike/index">Go to bike list</a>
+                </div>
+                <div>
+                    <p><?= $description ?></p>
+                </div>
+                <div id="confirm-message"><?= $confirm ?></div>
+            </div>
 
+        </div>
+
+
+        <a href="<?= BASE_URL ?>/bike/index"><- Back</a>
+</div>
         <?php
         //display page footer
         parent::displayFooter();

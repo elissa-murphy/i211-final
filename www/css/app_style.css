@@ -1,11 +1,5 @@
-/*#main-header {*/
-/*    !*background-color: red;*!*/
-/*}*/
-
-/*#hero-image {*/
-/*    min-height: 400px;*/
-/*    background-image: url("../../img/bikeHero.jpeg");*/
-/*    background-position: center;*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
-/*}*/
+.bike-grid-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 100px;
+}

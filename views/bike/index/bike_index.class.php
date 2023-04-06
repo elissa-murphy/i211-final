@@ -6,9 +6,9 @@ class BikeIndex extends BikeIndexView {
         parent::displayHeader("List All Bikes");
 
         ?>
-        <div id="main-header"> Bikes in the Shop</div>
+        <h2 id="main-header"> Bikes in the Shop</h2>
 
-        <div class="grid-container">
+        <div class="bike-grid-container">
             <?php
             if ($bikes === 0) {
                 echo "No bike was found.<br><br><br><br><br>";
@@ -27,7 +27,7 @@ class BikeIndex extends BikeIndexView {
 //                        echo "<div class='row'>";
 //                    }
 
-                    echo "<div class='col'><p><img src='" . $image .
+                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding-bottom: 100px; flex-direction: row'><p><img src='" . $image .
                         "'><span><a href='", BASE_URL, "/bike/detail/$id'>$name</a><br>" . $price . "</span></p></div>";
                     ?>
                     <?php

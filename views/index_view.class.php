@@ -49,10 +49,10 @@ class IndexView {
     //this method displays the page footer
     public static function displayFooter() {
         ?>
-                        <br><br><br>
-                        <div id="push"></div>
-                    </div>
-                <div id="footer" style="text-align: center;">&copy 2023 Bike Shop. All Rights Reserved.</div>
+<!--                        <br><br><br>-->
+<!--                        <div id="push"></div>-->
+<!--                    </div>-->
+                <div id="footer" style="text-align: center; background-color: black; color: #fffffa; height: 100px; padding-top: 25px; height: 50px;">&copy 2023 Bike Shop. All Rights Reserved. - Elissa Murphy & Jacob Catalan</div>
                 <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
             </body>
         </html>

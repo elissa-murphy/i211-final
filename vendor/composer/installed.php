@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'vendor_name/i211-final',
+        'name' => '__root__',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '9f96ec2b8e9290a0932e4a3c1afade9ebad097e1',
+        'reference' => '5289c482827443f57dce9c3c44d1a8442d4a4355',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'vendor_name/i211-final' => array(
+        '__root__' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9f96ec2b8e9290a0932e4a3c1afade9ebad097e1',
+            'reference' => '5289c482827443f57dce9c3c44d1a8442d4a4355',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
