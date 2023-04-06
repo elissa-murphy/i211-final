@@ -27,8 +27,8 @@ class BikeIndex extends BikeIndexView {
 //                        echo "<div class='row'>";
 //                    }
 
-                    echo "<div class='col'><p><a href='", BASE_URL, "/bike/detail/$id'><img src='" . $image .
-                        "'></a><span>$name<br>" . $price . "</span></p></div>";
+                    echo "<div class='col'><p><img src='" . $image .
+                        "'><span><a href='", BASE_URL, "/bike/detail/$id'>$name</a><br>" . $price . "</span></p></div>";
                     ?>
                     <?php
                     if ($i % 6 == 5 || $i == count($bikes) - 1) {

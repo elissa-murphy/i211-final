@@ -66,7 +66,7 @@ class BikeModel {
     //view_bike method retrieves the details of the bike specified by its id
     public function view_bike($id) {
         //the select sql statement
-        $sql = "SELECT * FROM " . $this->tblBikes . "," . " WHERE " . $this->tblBikes . ".id='$id'";
+        $sql = "SELECT * FROM " . $this->tblBikes . " WHERE " . $this->tblBikes . ".id='$id'";
 
         //execute the query
         $query = $this->dbConnection->query($sql);
