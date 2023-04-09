@@ -19,13 +19,11 @@ class BikeDetail extends BikeIndexView {
         $name = $bike->getName();
         $description = $bike->getDescription();
         $price = $bike->getPrice();
-//        $image = $bike->getImage();
+        $image = $bike->getImage();
 
-
-
-//        if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-//            $image = BASE_URL . '/' . BIKE_IMG . $image;
-//        }
+        if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+            $image = BASE_URL . '/' . BIKE_IMG . $image;
+        }
         ?>
 
         <h2 id="main-header"><?= $name ?> Details</h2>
@@ -36,7 +34,7 @@ class BikeDetail extends BikeIndexView {
         <div style="display: flex; justify-content: space-evenly;">
             <div>
                 <div style="width: 350px; height: 350px;">
-<!--                    <img src="--><?//////= $image ?><!--" alt="--><?//////= $title ?><!--" />-->
+                    <img src="<?= $image ?>" alt="Bike Main" style='width: 350px;height: 250px;' />
                 </div>
             </div>
             <div>

@@ -2,14 +2,15 @@
 
 class Bike {
 
-    private $id, $maker, $name, $description, $price;
+    private $id, $maker, $name, $description, $price, $image;
 
     //the constructor
-    public function __construct($maker, $name, $description, $price) {
+    public function __construct($maker, $name, $description, $price, $image) {
         $this->maker = $maker;
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
+        $this->image = $image;
     }
 
     //getters
@@ -31,6 +32,10 @@ class Bike {
 
     public function getPrice() {
         return $this->price;
+    }
+
+    public function getImage() {
+        return $this->image;
     }
 
     //set bike id

@@ -52,7 +52,7 @@ class BikeModel {
 
         //loop through all rows in the returned record sets
         while ($obj = $query->fetch_object()) {
-            $bike = new Bike(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price));
+            $bike = new Bike(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->image));
 
             //set the id for the bike
             $bike->setId($obj->id);
@@ -75,7 +75,7 @@ class BikeModel {
             $obj = $query->fetch_object();
 
             //create a bike object
-            $bike = new Bike(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price));
+            $bike = new Bike(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->image));
 
             //set the id for the bike
             $bike->setId($obj->id);

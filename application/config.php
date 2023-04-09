@@ -23,5 +23,8 @@ define("BASE_URL", "http://localhost/I211/final/i211-final");
  *                       settings for bikes                                         *
  ************************************************************************************/
 
+
 //define default path for media images
-define("IMG", "www/img/");
+define("BIKE_IMG", "www/img/bikes/");
+define("ACCESSORY_IMG", "www/img/accessories/");
+define("TIRE_IMG", "www/img/tires/");
