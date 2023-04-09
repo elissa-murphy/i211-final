@@ -19,6 +19,12 @@ return array(
     'Database' => $baseDir . '/application/database.class.php',
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
     'IndexView' => $baseDir . '/views/index_view.class.php',
+    'Tire' => $baseDir . '/models/tire.class.php',
+    'TireController' => $baseDir . '/controllers/tire_controller.class.php',
+    'TireDetail' => $baseDir . '/views/tire/detail/tire_detail.class.php',
+    'TireIndex' => $baseDir . '/views/tire/index/tire_index.class.php',
+    'TireIndexView' => $baseDir . '/views/tire/tire_index_view.class.php',
+    'TireModel' => $baseDir . '/models/tire_model.class.php',
     'WelcomeController' => $baseDir . '/controllers/welcome_controller.class.php',
     'WelcomeIndex' => $baseDir . '/views/welcome/welcome_index.class.php',
 );

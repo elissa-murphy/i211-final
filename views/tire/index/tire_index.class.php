@@ -1,0 +1,48 @@
+<?php
+
+class TireIndex extends TireIndexView
+{
+    public function display($tires) {
+        //display page header
+        parent::displayHeader("List All Tires");
+
+        ?>
+        <h2 id="main-header"> Tires in the Shop</h2>
+
+        <div class="bike-grid-container">
+            <?php
+            if ($tires === 0) {
+                echo "No tire was found.<br><br><br><br><br>";
+            } else {
+                //display tires in a grid; six tires per row
+                foreach ($tires as $i => $tire) {
+                    $id = $tire->getId();
+                    $name = $tire->getName();
+                    $price = $tire->getPrice();
+
+//                    $image = $tire->getImage();
+//                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+//                        $image = BASE_URL . "/" . TIRE_IMG . $image;
+//                    }
+//                    if ($i % 6 == 0) {
+//                        echo "<div class='row'>";
+//                    }
+
+                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding-bottom: 100px; flex-direction: row'><p><img src='" . $image .
+                        "'><span><a href='", BASE_URL, "/tire/detail/$id'>$name</a><br>" . $price . "</span></p></div>";
+                    ?>
+                    <?php
+                    if ($i % 6 == 5 || $i == count($tires) - 1) {
+                        echo "</div>";
+                    }
+                }
+            }
+            ?>
+        </div>
+
+        <?php
+        //display page footer
+        parent::displayFooter();
+
+    } //end of display method
+}

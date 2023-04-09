@@ -20,6 +20,12 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
         'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
+        'Tire' => __DIR__ . '/../..' . '/models/tire.class.php',
+        'TireController' => __DIR__ . '/../..' . '/controllers/tire_controller.class.php',
+        'TireDetail' => __DIR__ . '/../..' . '/views/tire/detail/tire_detail.class.php',
+        'TireIndex' => __DIR__ . '/../..' . '/views/tire/index/tire_index.class.php',
+        'TireIndexView' => __DIR__ . '/../..' . '/views/tire/tire_index_view.class.php',
+        'TireModel' => __DIR__ . '/../..' . '/models/tire_model.class.php',
         'WelcomeController' => __DIR__ . '/../..' . '/controllers/welcome_controller.class.php',
         'WelcomeIndex' => __DIR__ . '/../..' . '/views/welcome/welcome_index.class.php',
     );
