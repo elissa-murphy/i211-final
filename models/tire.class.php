@@ -2,15 +2,16 @@
 
 class Tire
 {
-    private $id, $maker, $name, $description, $price, $rating;
+    private $id, $maker, $name, $description, $price, $rating, $image;
 
     //the constructor
-    public function __construct($maker, $name, $description, $price, $rating) {
+    public function __construct($maker, $name, $description, $price, $rating, $image) {
         $this->maker = $maker;
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
         $this->rating = $rating;
+        $this->image = $image;
     }
 
     //getters
@@ -36,6 +37,10 @@ class Tire
 
     public function getRating() {
         return $this->rating;
+    }
+
+    public function getImage() {
+        return $this->image;
     }
 
     //set tire id

@@ -13,13 +13,11 @@ class TireDetail extends TireIndexView
         $description = $tire->getDescription();
         $price = $tire->getPrice();
         $rating = $tire->getRating();
-//        $image = $bike->getImage();
+        $image = $tire->getImage();
 
-
-
-//        if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-//            $image = BASE_URL . '/' . TIRE_IMG . $image;
-//        }
+        if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+            $image = BASE_URL . '/' . TIRE_IMG . $image;
+        }
         ?>
 
         <h2 id="main-header"><?= $name ?> Details</h2>
@@ -30,7 +28,7 @@ class TireDetail extends TireIndexView
             <div style="display: flex; justify-content: space-evenly;">
                 <div>
                     <div style="width: 350px; height: 350px;">
-                        <!--                    <img src="--><?//////= $image ?><!--" alt="--><?//////= $title ?><!--" />-->
+                      <img src="<?= $image ?>" alt="Tire Main" style='width: 350px;height: 250px;'/>
                     </div>
                 </div>
                 <div>

@@ -53,7 +53,7 @@ class TireModel
 
         //loop through all rows in the returned record sets
         while ($obj = $query->fetch_object()) {
-            $tire = new Tire(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->rating));
+            $tire = new Tire(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->rating),stripslashes($obj->image));
 
             //set the id for the tire
             $tire->setId($obj->id);
@@ -76,7 +76,7 @@ class TireModel
             $obj = $query->fetch_object();
 
             //create a tire object
-            $tire = new Tire(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->rating));
+            $tire = new Tire(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->rating),stripslashes($obj->image));
 
             //set the id for the tire
             $tire->setId($obj->id);
