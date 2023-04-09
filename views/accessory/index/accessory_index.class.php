@@ -19,7 +19,6 @@ class AccessoryIndex extends AccessoryIndexView
                     $id = $accessory->getId();
                     $name = $accessory->getName();
                     $price = $accessory->getPrice();
-
                     $image = $accessory->getImage();
                     if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
                         $image = BASE_URL . "/" . ACCESSORY_IMG . $image;

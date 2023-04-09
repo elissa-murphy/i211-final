@@ -13,6 +13,7 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'AccessoryIndex' => __DIR__ . '/../..' . '/views/accessory/index/accessory_index.class.php',
         'AccessoryIndexView' => __DIR__ . '/../..' . '/views/accessory/accessory_index_view.class.php',
         'AccessoryModel' => __DIR__ . '/../..' . '/models/accessory_model.class.php',
+        'AccessorySearch' => __DIR__ . '/../..' . '/views/accessory/search/accessory_search.class.php',
         'Bike' => __DIR__ . '/../..' . '/models/bike.class.php',
         'BikeController' => __DIR__ . '/../..' . '/controllers/bike_controller.class.php',
         'BikeDetail' => __DIR__ . '/../..' . '/views/bike/detail/bike_detail.class.php',
@@ -33,6 +34,7 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'TireIndex' => __DIR__ . '/../..' . '/views/tire/index/tire_index.class.php',
         'TireIndexView' => __DIR__ . '/../..' . '/views/tire/tire_index_view.class.php',
         'TireModel' => __DIR__ . '/../..' . '/models/tire_model.class.php',
+        'TireSearch' => __DIR__ . '/../..' . '/views/tire/search/tire_search.class.php',
         'WelcomeController' => __DIR__ . '/../..' . '/controllers/welcome_controller.class.php',
         'WelcomeIndex' => __DIR__ . '/../..' . '/views/welcome/welcome_index.class.php',
     );

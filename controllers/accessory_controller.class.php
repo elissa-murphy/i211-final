@@ -40,6 +40,47 @@ class AccessoryController
         $view->display($accessory);
     }
 
+    //search accessories
+    public function search() {
+        //retrieve query terms from search form
+        $query_terms = trim($_GET['query-terms']);
+
+        //if search term is empty, list all accessories
+        if ($query_terms == "") {
+            $this->index();
+        }
+
+        //search the database for matching accessories
+        $accessories = $this->accessory_model->search_accessory($query_terms);
+
+        if ($accessories === false) {
+            //handle error
+            $message = "An error has occurred.";
+//            $this->error($message);
+            return;
+        }
+        //display matched accessories
+        $search = new AccessorySearch();
+        $search->display($query_terms, $accessories);
+    }
+
+    //autosuggestion
+    public function suggest($terms) {
+        //retrieve query terms
+        $query_terms = urldecode(trim($terms));
+        $accessories = $this->accessory_model->search_accessory($query_terms);
+
+        //retrieve all accessory titles and store them in an array
+        $titles = array();
+        if ($accessories) {
+            foreach ($accessories as $accessory) {
+                $titles[] = $accessory->getTitle();
+            }
+        }
+
+        echo json_encode($accessories);
+    }
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class

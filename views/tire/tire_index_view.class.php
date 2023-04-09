@@ -12,11 +12,11 @@ class TireIndexView extends IndexView
         </script>
 
         <div id="searchbar">
-            <!--            <form method="get" action="--><?//= BASE_URL ?><!--/tire/search">-->
-            <!--                <input type="text" name="query-terms" id="searchtextbox" placeholder="Search tires" autocomplete="off" onkeyup="handleKeyUp(event)">-->
-            <!--                <input type="submit" value="Go" />-->
-            <!--            </form>-->
-            <!--            <div id="suggestionDiv"></div>-->
+                        <form method="get" action="<?= BASE_URL ?>/tire/search">
+                            <input type="text" name="query-terms" id="searchtextbox" placeholder="Search tires" autocomplete="off" onkeyup="handleKeyUp(event)">
+                            <input type="submit" value="Go" />
+                        </form>
+                        <div id="suggestionDiv"></div>
         </div>
 
         <?php

@@ -12,6 +12,7 @@ return array(
     'AccessoryIndex' => $baseDir . '/views/accessory/index/accessory_index.class.php',
     'AccessoryIndexView' => $baseDir . '/views/accessory/accessory_index_view.class.php',
     'AccessoryModel' => $baseDir . '/models/accessory_model.class.php',
+    'AccessorySearch' => $baseDir . '/views/accessory/search/accessory_search.class.php',
     'Bike' => $baseDir . '/models/bike.class.php',
     'BikeController' => $baseDir . '/controllers/bike_controller.class.php',
     'BikeDetail' => $baseDir . '/views/bike/detail/bike_detail.class.php',
@@ -32,6 +33,7 @@ return array(
     'TireIndex' => $baseDir . '/views/tire/index/tire_index.class.php',
     'TireIndexView' => $baseDir . '/views/tire/tire_index_view.class.php',
     'TireModel' => $baseDir . '/models/tire_model.class.php',
+    'TireSearch' => $baseDir . '/views/tire/search/tire_search.class.php',
     'WelcomeController' => $baseDir . '/controllers/welcome_controller.class.php',
     'WelcomeIndex' => $baseDir . '/views/welcome/welcome_index.class.php',
 );

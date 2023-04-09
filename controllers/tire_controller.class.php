@@ -41,6 +41,47 @@ class TireController
         $view->display($tire);
     }
 
+    //search tires
+    public function search() {
+        //retrieve query terms from search form
+        $query_terms = trim($_GET['query-terms']);
+
+        //if search term is empty, list all tires
+        if ($query_terms == "") {
+            $this->index();
+        }
+
+        //search the database for matching tires
+        $tires = $this->tire_model->search_tire($query_terms);
+
+        if ($tires === false) {
+            //handle error
+            $message = "An error has occurred.";
+//            $this->error($message);
+            return;
+        }
+        //display matched tires
+        $search = new TireSearch();
+        $search->display($query_terms, $tires);
+    }
+
+    //autosuggestion
+    public function suggest($terms) {
+        //retrieve query terms
+        $query_terms = urldecode(trim($terms));
+        $tires = $this->tire_model->search_tire($query_terms);
+
+        //retrieve all tire titles and store them in an array
+        $titles = array();
+        if ($tires) {
+            foreach ($tires as $tire) {
+                $titles[] = $tire->getTitle();
+            }
+        }
+
+        echo json_encode($tires);
+    }
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class

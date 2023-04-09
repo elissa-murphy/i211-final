@@ -85,4 +85,43 @@ class TireModel
         }
         return false;
     }
+
+    public function search_tire($terms) {
+        $terms = explode(" ", $terms); //explode multiple terms into an array
+        //select statement for AND search
+        $sql = "SELECT * FROM " . $this->tblTires;
+
+        foreach ($terms as $term) {
+            $sql .= " WHERE name LIKE '%" . $term . "%'";
+        }
+
+//        $sql .= ")";
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        // the search failed, return false.
+        if (!$query)
+            return false;
+
+        //search succeeded, but no tire was found.
+        if ($query->num_rows == 0)
+            return 0;
+
+        //search succeeded, and found at least 1 tire found.
+        //create an array to store all the returned tires
+        $tires = array();
+
+        //loop through all rows in the returned record sets
+        while ($obj = $query->fetch_object()) {
+            $tire = new Tire(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->rating),stripslashes($obj->image));
+
+            //set the id for the tire
+            $tire->setId($obj->id);
+
+            //add the tire into the array
+            $tires[] = $tire;
+        }
+        return $tires;
+    }
 }

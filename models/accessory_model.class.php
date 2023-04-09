@@ -85,4 +85,43 @@ class AccessoryModel
         }
         return false;
     }
+
+    public function search_accessory($terms) {
+        $terms = explode(" ", $terms); //explode multiple terms into an array
+        //select statement for AND search
+        $sql = "SELECT * FROM " . $this->tblAccessories;
+
+        foreach ($terms as $term) {
+            $sql .= " WHERE name LIKE '%" . $term . "%'";
+        }
+
+//        $sql .= ")";
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        // the search failed, return false.
+        if (!$query)
+            return false;
+
+        //search succeeded, but no accessory was found.
+        if ($query->num_rows == 0)
+            return 0;
+
+        //search succeeded, and found at least 1 accessory found.
+        //create an array to store all the returned accessories
+        $accessories = array();
+
+        //loop through all rows in the returned record sets
+        while ($obj = $query->fetch_object()) {
+            $accessory = new Accessory(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->image));
+
+            //set the id for the accessory
+            $accessory->setId($obj->id);
+
+            //add the accessory into the array
+            $accessories[] = $accessory;
+        }
+        return $accessories;
+    }
 }
