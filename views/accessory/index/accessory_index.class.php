@@ -20,16 +20,16 @@ class AccessoryIndex extends AccessoryIndexView
                     $name = $accessory->getName();
                     $price = $accessory->getPrice();
 
-//                    $image = $accessory->getImage();
-//                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-//                        $image = BASE_URL . "/" . ACCESSORY_IMG . $image;
-//                    }
-//                    if ($i % 6 == 0) {
-//                        echo "<div class='row'>";
-//                    }
+                    $image = $accessory->getImage();
+                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+                        $image = BASE_URL . "/" . ACCESSORY_IMG . $image;
+                    }
+                    if ($i % 6 == 0) {
+                        echo "<div class='row'>";
+                    }
 
-                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding-bottom: 100px; flex-direction: row'><p><img src='" . $image .
-                        "'><span><a href='", BASE_URL, "/accessory/detail/$id'>$name</a><br>" . $price . "</span></p></div>";
+                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding-bottom: 100px; flex-direction: row'><p><a href='", BASE_URL, "/accessory/detail/$id'><img src='" . $image .
+                        "' style='width: 200px;height: 150px;display: block;'><span>$name</a><br>" . $price . "</span></p></div>";
                     ?>
                     <?php
                     if ($i % 6 == 5 || $i == count($accessories) - 1) {

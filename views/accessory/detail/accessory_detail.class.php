@@ -12,13 +12,13 @@ class AccessoryDetail extends AccessoryIndexView
         $name = $accessory->getName();
         $description = $accessory->getDescription();
         $price = $accessory->getPrice();
-//        $image = $accessory->getImage();
+        $image = $accessory->getImage();
 
 
 
-//        if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
-//            $image = BASE_URL . '/' . ACCESSORY_IMG . $image;
-//        }
+        if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+            $image = BASE_URL . '/' . ACCESSORY_IMG . $image;
+        }
         ?>
 
         <h2 id="main-header"><?= $name ?> Details</h2>
@@ -29,7 +29,7 @@ class AccessoryDetail extends AccessoryIndexView
             <div style="display: flex; justify-content: space-evenly;">
                 <div>
                     <div style="width: 350px; height: 350px;">
-                        <!--                    <img src="--><?//////= $image ?><!--" alt="--><?//////= $title ?><!--" />-->
+                       <img src="<?= $image ?>" alt="Accessory Main" style='width: 350px;height: 250px;display: block;'/>
                     </div>
                 </div>
                 <div>

@@ -53,7 +53,7 @@ class AccessoryModel
 
         //loop through all rows in the returned record sets
         while ($obj = $query->fetch_object()) {
-            $accessory = new Accessory(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price));
+            $accessory = new Accessory(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->image));
 
             //set the id for the accessory
             $accessory->setId($obj->id);
@@ -76,7 +76,7 @@ class AccessoryModel
             $obj = $query->fetch_object();
 
             //create an accessory object
-            $accessory = new Accessory(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price));
+            $accessory = new Accessory(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->image));
 
             //set the id for the accessory
             $accessory->setId($obj->id);
