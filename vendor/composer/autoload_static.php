@@ -19,6 +19,7 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'BikeIndex' => __DIR__ . '/../..' . '/views/bike/index/bike_index.class.php',
         'BikeIndexView' => __DIR__ . '/../..' . '/views/bike/bike_index_view.class.php',
         'BikeModel' => __DIR__ . '/../..' . '/models/bike_model.class.php',
+        'BikeSearch' => __DIR__ . '/../..' . '/views/bike/search/bike_search.class.php',
         'ComposerAutoloaderInitb6f7ef2b47157929328fd64e686a7688' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInitb6f7ef2b47157929328fd64e686a7688' => __DIR__ . '/..' . '/composer/autoload_static.php',

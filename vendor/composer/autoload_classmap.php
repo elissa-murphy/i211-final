@@ -18,6 +18,7 @@ return array(
     'BikeIndex' => $baseDir . '/views/bike/index/bike_index.class.php',
     'BikeIndexView' => $baseDir . '/views/bike/bike_index_view.class.php',
     'BikeModel' => $baseDir . '/models/bike_model.class.php',
+    'BikeSearch' => $baseDir . '/views/bike/search/bike_search.class.php',
     'ComposerAutoloaderInitb6f7ef2b47157929328fd64e686a7688' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInitb6f7ef2b47157929328fd64e686a7688' => $vendorDir . '/composer/autoload_static.php',

@@ -85,4 +85,43 @@ class BikeModel {
         return false;
     }
 
+    public function search_bike($terms) {
+        $terms = explode(" ", $terms); //explode multiple terms into an array
+        //select statement for AND search
+        $sql = "SELECT * FROM " . $this->tblBikes;
+
+        foreach ($terms as $term) {
+            $sql .= " WHERE name OR description OR maker OR price LIKE '%" . $term . "%'";
+        }
+
+//        $sql .= ")";
+
+        //execute the query
+        $query = $this->dbConnection->query($sql);
+
+        // the search failed, return false.
+        if (!$query)
+            return false;
+
+        //search succeeded, but no bike was found.
+        if ($query->num_rows == 0)
+            return 0;
+
+        //search succeeded, and found at least 1 bike found.
+        //create an array to store all the returned bikes
+        $bikes = array();
+
+        //loop through all rows in the returned recordsets
+        while ($obj = $query->fetch_object()) {
+            $bike = new Bike(stripslashes($obj->maker), stripslashes($obj->name), stripslashes($obj->description), stripslashes($obj->price), stripslashes($obj->image));
+
+            //set the id for the bike
+            $bike->setId($obj->id);
+
+            //add the bike into the array
+            $bikes[] = $bike;
+        }
+        return $bikes;
+    }
+
 }

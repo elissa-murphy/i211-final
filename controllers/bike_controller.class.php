@@ -40,6 +40,47 @@ class BikeController
         $view->display($bike);
     }
 
+    //search bikes
+    public function search() {
+        //retrieve query terms from search form
+        $query_terms = trim($_GET['query-terms']);
+
+        //if search term is empty, list all bikes
+        if ($query_terms == "") {
+            $this->index();
+        }
+
+        //search the database for matching bikes
+        $bikes = $this->bike_model->search_bike($query_terms);
+
+        if ($bikes === false) {
+            //handle error
+            $message = "An error has occurred.";
+//            $this->error($message);
+            return;
+        }
+        //display matched bikes
+        $search = new BikeSearch();
+        $search->display($query_terms, $bikes);
+    }
+
+    //autosuggestion
+    public function suggest($terms) {
+        //retrieve query terms
+        $query_terms = urldecode(trim($terms));
+        $bikes = $this->bike_model->search_bike($query_terms);
+
+        //retrieve all bike titles and store them in an array
+        $titles = array();
+        if ($bikes) {
+            foreach ($bikes as $bike) {
+                $titles[] = $bike->getTitle();
+            }
+        }
+
+        echo json_encode($bikes);
+    }
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class
