@@ -7,6 +7,12 @@ namespace Composer\Autoload;
 class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
 {
     public static $classMap = array (
+        'Accessory' => __DIR__ . '/../..' . '/models/accessory.class.php',
+        'AccessoryController' => __DIR__ . '/../..' . '/controllers/accessory_controller.class.php',
+        'AccessoryDetail' => __DIR__ . '/../..' . '/views/accessory/detail/accessory_detail.class.php',
+        'AccessoryIndex' => __DIR__ . '/../..' . '/views/accessory/index/accessory_index.class.php',
+        'AccessoryIndexView' => __DIR__ . '/../..' . '/views/accessory/accessory_index_view.class.php',
+        'AccessoryModel' => __DIR__ . '/../..' . '/models/accessory_model.class.php',
         'Bike' => __DIR__ . '/../..' . '/models/bike.class.php',
         'BikeController' => __DIR__ . '/../..' . '/controllers/bike_controller.class.php',
         'BikeDetail' => __DIR__ . '/../..' . '/views/bike/detail/bike_detail.class.php',

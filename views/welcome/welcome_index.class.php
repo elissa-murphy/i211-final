@@ -47,7 +47,7 @@ class WelcomeIndex extends IndexView {
 
                 <div>Tires</div>
             </a>
-            <a href="<?= BASE_URL ?>/accessories/index">
+            <a href="<?= BASE_URL ?>/accessory/index">
                 <img style="max-height: 200px; max-width: 250px; min-height: 200px; min-width: 250px;" src="<?= BASE_URL ?>/www/img/accessoriesFeature.jpeg" title="Accessories Library" />
 
                 <div>Accessories</div>

@@ -38,7 +38,7 @@ class IndexView {
                          <a style="color: white; padding: 0px 15px;" href="<?= BASE_URL ?>/tire/index">
                              <div>Tires</div>
                          </a>
-                         <a style="color: white;" href="<?= BASE_URL ?>/accessories/index">
+                         <a style="color: white;" href="<?= BASE_URL ?>/accessory/index">
                              <div>Accessories</div>
                          </a>
                      </div>

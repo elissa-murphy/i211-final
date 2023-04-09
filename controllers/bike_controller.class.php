@@ -2,7 +2,6 @@
 
 class BikeController
 {
-
     private $bike_model;
 
     //default constructor
