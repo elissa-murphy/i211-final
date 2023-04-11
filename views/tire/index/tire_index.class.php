@@ -25,7 +25,7 @@ class TireIndex extends TireIndexView
                         $image = BASE_URL . "/" . TIRE_IMG . $image;
                     }
                     if ($i % 6 == 0) {
-                        echo "<div class='row'>";
+                        echo "<div style='display: flex; justify-content: space-evenly; align-items: center; '>";
                     }
 
                     echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding-bottom: 100px; flex-direction: row'><p><a href='", BASE_URL, "/tire/detail/$id'><img src='" . $image .

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="MAMP" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="XAMPP apache" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="MAMP">
+      <paths name="XAMPP apache">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/i211/final/i211-final" />
+            <mapping deploy="\" local="$PROJECT_DIR$" web="/i211/final/i211-final" />
           </mappings>
         </serverdata>
       </paths>

@@ -35,8 +35,8 @@ class AccessoryDetail extends AccessoryIndexView
                 <div>
                     <div style="display: flex; justify-content: space-evenly;">
                         <p><?= $name ?></p>
-                        <p><?= $maker ?></p>
-                        <p><?= $price ?></p>
+                        <p>Maker: <?= $maker ?></p>
+                        <p>Price: <?= $price ?></p>
                     </div>
                     <div>
                         <p><?= $description ?></p>

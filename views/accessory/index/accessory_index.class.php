@@ -24,10 +24,10 @@ class AccessoryIndex extends AccessoryIndexView
                         $image = BASE_URL . "/" . ACCESSORY_IMG . $image;
                     }
                     if ($i % 6 == 0) {
-                        echo "<div class='row'>";
+                        echo "<div style='display: flex; justify-content: space-evenly; align-items: center; '>";
                     }
 
-                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding-bottom: 100px; flex-direction: row'><p><a href='", BASE_URL, "/accessory/detail/$id'><img src='" . $image .
+                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding-bottom: 100px;'><p><a href='", BASE_URL, "/accessory/detail/$id'><img src='" . $image .
                         "' style='width: 200px;height: 150px;display: block;'><span>$name</a><br>" . $price . "</span></p></div>";
                     ?>
                     <?php
