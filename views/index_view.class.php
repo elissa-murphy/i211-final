@@ -41,6 +41,9 @@ class IndexView {
                          <a style="color: white;" href="<?= BASE_URL ?>/accessory/index">
                              <div>Accessories</div>
                          </a>
+<!--                            <a style="color: white;" href="--><?//= BASE_URL ?><!--/accessory/create">-->
+<!--                             <div>Add Accessories</div>-->
+<!--                         </a>-->
                      </div>
         </div>
         <?php

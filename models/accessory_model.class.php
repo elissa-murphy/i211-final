@@ -149,6 +149,12 @@ class AccessoryModel
         //execute the query
         $query =  $this->dbConnection->query($sql);
 
+        //if no query, set error message
+        if(!$query){
+            $errmsg = $this->dbConnection->error;
+//            header("Location: index.php?action=error&message=$errmsg");
+        }
+
 
     }
 

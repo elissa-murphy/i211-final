@@ -20,7 +20,7 @@ class AccessoryIndexView extends IndexView
 
         <div id="create">
             <form method="get" action="<?= BASE_URL ?>/accessory/create">
-                <input type="submit" value="Edit" />
+                <input type="submit" value="Add Accessories" />
             </form>
         </div>
 

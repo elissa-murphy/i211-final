@@ -8,6 +8,7 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
 {
     public static $classMap = array (
         'Accessory' => __DIR__ . '/../..' . '/models/accessory.class.php',
+        'AccessoryConfirm' => __DIR__ . '/../..' . '/views/accessory/confirm/accessory_confirm.class.php',
         'AccessoryController' => __DIR__ . '/../..' . '/controllers/accessory_controller.class.php',
         'AccessoryCreate' => __DIR__ . '/../..' . '/views/accessory/create/accessory_create.class.php',
         'AccessoryDetail' => __DIR__ . '/../..' . '/views/accessory/detail/accessory_detail.class.php',
