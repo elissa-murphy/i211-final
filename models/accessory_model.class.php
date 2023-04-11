@@ -124,4 +124,32 @@ class AccessoryModel
         }
         return $accessories;
     }
+
+    public function create_accessory(){
+        //if the script did not receive post data, display an error message and then terminate the script immediately
+        if (!filter_has_var(INPUT_POST, 'name') ||
+            !filter_has_var(INPUT_POST, 'maker') ||
+            !filter_has_var(INPUT_POST, 'price') ||
+            !filter_has_var(INPUT_POST, 'description') ||
+            !filter_has_var(INPUT_POST, 'image')
+        ) {
+            return false;
+        }
+
+        //retrieve data for the new guest; data are sanitized and escaped for security.
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+        $maker= filter_input(INPUT_POST, 'maker', FILTER_SANITIZE_STRING);
+        $price =filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
+        $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
+        $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
+
+        //query string
+        $sql = "INSERT INTO " . $this->db->getAccessoriesTable() . " VALUES (NULL, '$price', '$description','$name', '$maker' , '$image')";
+
+        //execute the query
+        $query =  $this->dbConnection->query($sql);
+
+
+    }
+
 }

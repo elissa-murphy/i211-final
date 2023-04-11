@@ -81,6 +81,14 @@ class AccessoryController
         echo json_encode($accessories);
     }
 
+    public function create() {
+
+        $accessories = $this->accessory_model->display_accessory();
+        $view = new AccessoryCreate();
+
+        $view->display($accessories);
+    }
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class

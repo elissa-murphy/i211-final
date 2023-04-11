@@ -18,6 +18,12 @@ class AccessoryIndexView extends IndexView
                         <div id="suggestionDiv"></div>
         </div>
 
+        <div id="create">
+            <form method="get" action="<?= BASE_URL ?>/accessory/create">
+                <input type="submit" value="Edit" />
+            </form>
+        </div>
+
         <?php
     }
 

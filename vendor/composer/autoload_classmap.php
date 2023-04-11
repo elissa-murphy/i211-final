@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Accessory' => $baseDir . '/models/accessory.class.php',
     'AccessoryController' => $baseDir . '/controllers/accessory_controller.class.php',
+    'AccessoryCreate' => $baseDir . '/views/accessory/create/accessory_create.class.php',
     'AccessoryDetail' => $baseDir . '/views/accessory/detail/accessory_detail.class.php',
     'AccessoryIndex' => $baseDir . '/views/accessory/index/accessory_index.class.php',
     'AccessoryIndexView' => $baseDir . '/views/accessory/accessory_index_view.class.php',
