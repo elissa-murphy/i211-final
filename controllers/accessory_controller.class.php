@@ -82,16 +82,18 @@ class AccessoryController
     }
 
     public function create() {
-        $accessories = $this->accessory_model->create_accessory();
         $view = new AccessoryCreate();
-
-        $view->display($accessories);
+        $view->display();
     }
 
     public function confirm() {
-//        $accessories = $this->accessory_model->create_accessory();
+//        echo "confirm";
+        $accessories = $this->accessory_model->create_accessory();
+        echo $accessories;
+
         $view = new AccessoryConfirm();
         $view->display();
+
     }
 
     //handle an error

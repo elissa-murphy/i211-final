@@ -126,6 +126,7 @@ class AccessoryModel
     }
 
     public function create_accessory(){
+        echo "confirm 2";
         //if the script did not receive post data, display an error message and then terminate the script immediately
         if (!filter_has_var(INPUT_POST, 'name') ||
             !filter_has_var(INPUT_POST, 'maker') ||
@@ -136,7 +137,7 @@ class AccessoryModel
             return false;
         }
 
-        //retrieve data for the new guest; data are sanitized and escaped for security.
+        //retrieve data for the new accessory; data are sanitized and escaped for security.
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         $maker= filter_input(INPUT_POST, 'maker', FILTER_SANITIZE_STRING);
         $price =filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
@@ -144,7 +145,7 @@ class AccessoryModel
         $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
 
         //query string
-        $sql = "INSERT INTO " . $this->db->getAccessoriesTable() . " VALUES (NULL, '$price', '$description','$name', '$maker' , '$image')";
+        $sql = "INSERT INTO " . $this->tblAccessories . " VALUES (NULL, '$name', '$maker','$price', '$description' , '$image')";
 
         //execute the query
         $query =  $this->dbConnection->query($sql);
@@ -152,7 +153,7 @@ class AccessoryModel
         //if no query, set error message
         if(!$query){
             $errmsg = $this->dbConnection->error;
-//            header("Location: index.php?action=error&message=$errmsg");
+            echo $errmsg;
         }
 
 
