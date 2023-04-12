@@ -35,7 +35,7 @@ class TireCreate extends TireIndexView
         <p><strong>Image</strong><br>
             <input name="image" type="text" size="100" required /></p>
         <p><strong>Rating</strong><br>
-            <input name="image" type="text" size="100" required /></p>
+            <input name="rating" type="number" size="100" required /></p>
         <input type="submit" value="Submit" >
     </form>
     </body>

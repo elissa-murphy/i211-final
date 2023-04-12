@@ -126,7 +126,7 @@ class TireModel
     }
 
     public function create_tire(){
-        echo "confirm 2";
+//        echo "confirm 2";
         //if the script did not receive post data, display an error message and then terminate the script immediately
         if (!filter_has_var(INPUT_POST, 'name') ||
             !filter_has_var(INPUT_POST, 'maker') ||
