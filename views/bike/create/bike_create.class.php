@@ -7,23 +7,23 @@
  * Description:
  */
 
-class AccessoryCreate extends AccessoryIndexView
+class BikeCreate extends BikeIndexView
 {
     public function display() {
         //display page header
-        parent::displayHeader("Create Accessories");
+        parent::displayHeader("Create Bike");
 
 
         ?>
         <!DOCTYPE "HTML">
         <html>
     <head>
-        <title>Create Accessory</title>
+        <title>Create Bike</title>
         <link type="text/css" rel="stylesheet" href="www/css/styles.css" />
     </head>
     <body>
     <h2>Create a Accessory</h2>
-    <form class="new-media" action='<?= BASE_URL?>/accessory/confirm' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
+    <form class="new-media" action='<?= BASE_URL?>/bike/confirm' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
         <p><strong>Name</strong><br>
             <input name="name" type="text" size="100" id="name" required autofocus></p>
         <p><strong>Maker</strong><br>

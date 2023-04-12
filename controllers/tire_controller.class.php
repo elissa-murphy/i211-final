@@ -82,6 +82,21 @@ class TireController
         echo json_encode($tires);
     }
 
+    public function create() {
+        $view = new TireCreate();
+        $view->display();
+    }
+
+    public function confirm() {
+//        echo "confirm";
+        $tire = $this->tire_model->create_tire();
+        echo $tire;
+
+        $view = new TireConfirm();
+        $view->display();
+
+    }
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class

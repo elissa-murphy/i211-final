@@ -81,6 +81,21 @@ class BikeController
         echo json_encode($bikes);
     }
 
+    public function create() {
+        $view = new BikeCreate();
+        $view->display();
+    }
+
+    public function confirm() {
+//        echo "confirm";
+        $bikes = $this->bike_model->create_bike();
+        echo $bikes;
+
+        $view = new BikeConfirm();
+        $view->display();
+
+    }
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class

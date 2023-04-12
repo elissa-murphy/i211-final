@@ -17,6 +17,12 @@ class TireIndexView extends IndexView
                             <input type="submit" value="Go" />
                         </form>
                         <div id="suggestionDiv"></div>
+
+            <div id="create">
+                <form method="get" action="<?= BASE_URL ?>/tire/create">
+                    <input type="submit" value="Add Tires" />
+                </form>
+            </div>
         </div>
 
         <?php

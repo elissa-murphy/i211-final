@@ -124,4 +124,40 @@ class TireModel
         }
         return $tires;
     }
+
+    public function create_tire(){
+        echo "confirm 2";
+        //if the script did not receive post data, display an error message and then terminate the script immediately
+        if (!filter_has_var(INPUT_POST, 'name') ||
+            !filter_has_var(INPUT_POST, 'maker') ||
+            !filter_has_var(INPUT_POST, 'price') ||
+            !filter_has_var(INPUT_POST, 'description') ||
+            !filter_has_var(INPUT_POST, 'image') ||
+            !filter_has_var(INPUT_POST, 'rating')
+        ) {
+            return false;
+        }
+
+        //retrieve data for the new accessory; data are sanitized and escaped for security.
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+        $maker= filter_input(INPUT_POST, 'maker', FILTER_SANITIZE_STRING);
+        $price =filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
+        $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
+        $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
+        $rating = filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING);
+
+        //query string
+        $sql = "INSERT INTO " . $this->tblTires . " VALUES (NULL, '$name', '$maker','$price', '$description' , '$image', '$rating')";
+
+        //execute the query
+        $query =  $this->dbConnection->query($sql);
+
+        //if no query, set error message
+        if(!$query){
+            $errmsg = $this->dbConnection->error;
+            echo $errmsg;
+        }
+
+
+    }
 }

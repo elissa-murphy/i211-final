@@ -15,6 +15,12 @@ class BikeIndexView extends IndexView {
                 <input type="submit" value="Go" />
             </form>
             <div id="suggestionDiv"></div>
+
+            <div id="create">
+                <form method="get" action="<?= BASE_URL ?>/bike/create">
+                    <input type="submit" value="Add Bikes" />
+                </form>
+            </div>
         </div>
 
         <?php
