@@ -96,6 +96,16 @@ class BikeController
 
     }
 
+    public function confirm_delete($id) {
+//        echo "confirm";
+        $bikes = $this->bike_model->delete_bike($id);
+        echo $bikes;
+
+        $view = new BikeConfirmDelete();
+        $view->display();
+
+    }
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class

@@ -160,4 +160,19 @@ class BikeModel {
 
     }
 
+    public function delete_bike($id){
+        $sql = "DELETE FROM " . $this->tblBikes . " WHERE " . $this->tblBikes . ".id='$id'";
+
+
+
+//execute the query and handle errors
+        $query = $this->dbConnection->query($sql);
+
+
+        if(!$query){
+            $errmsg = $this->dbConnection->error;
+            echo $errmsg;
+        }
+    }
+
 }

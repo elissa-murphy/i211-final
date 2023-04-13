@@ -159,4 +159,19 @@ class AccessoryModel
 
     }
 
+    public function delete_accessory($id){
+        $sql = "DELETE FROM " . $this->tblAccessories . " WHERE " . $this->tblAccessories . ".id='$id'";
+
+
+
+//execute the query and handle errors
+        $query = $this->dbConnection->query($sql);
+
+
+        if(!$query){
+            $errmsg = $this->dbConnection->error;
+            echo $errmsg;
+        }
+    }
+
 }

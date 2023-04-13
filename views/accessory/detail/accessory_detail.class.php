@@ -46,6 +46,14 @@ class AccessoryDetail extends AccessoryIndexView
 
             </div>
 
+        </div>
+        <div id="create">
+            <form method="get" action="<?= BASE_URL ?>/accessory/confirm_delete/<?=$id?>">
+                <input type="submit" value="Delete Accessories" />
+            </form>
+        </div>
+        </div>
+
 
             <a href="<?= BASE_URL ?>/accessory/index"><- Back</a>
         </div>

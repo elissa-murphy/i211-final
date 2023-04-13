@@ -86,6 +86,17 @@ class AccessoryController
         $view->display();
     }
 
+
+
+    public function confirm_delete($id) {
+//        echo "confirm";
+        $accessories = $this->accessory_model->delete_accessory($id);
+        echo $accessories;
+
+        $view = new AccessoryConfirmDelete();
+        $view->display();
+
+    }
     public function confirm() {
 //        echo "confirm";
         $accessories = $this->accessory_model->create_accessory();

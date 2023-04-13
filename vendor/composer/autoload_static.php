@@ -9,6 +9,7 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
     public static $classMap = array (
         'Accessory' => __DIR__ . '/../..' . '/models/accessory.class.php',
         'AccessoryConfirm' => __DIR__ . '/../..' . '/views/accessory/confirm/accessory_confirm.class.php',
+        'AccessoryConfirmDelete' => __DIR__ . '/../..' . '/views/accessory/confirm/accessory_confirm_delete.class.php',
         'AccessoryController' => __DIR__ . '/../..' . '/controllers/accessory_controller.class.php',
         'AccessoryCreate' => __DIR__ . '/../..' . '/views/accessory/create/accessory_create.class.php',
         'AccessoryDetail' => __DIR__ . '/../..' . '/views/accessory/detail/accessory_detail.class.php',
@@ -18,6 +19,7 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'AccessorySearch' => __DIR__ . '/../..' . '/views/accessory/search/accessory_search.class.php',
         'Bike' => __DIR__ . '/../..' . '/models/bike.class.php',
         'BikeConfirm' => __DIR__ . '/../..' . '/views/bike/confirm/bike_confirm.class.php',
+        'BikeConfirmDelete' => __DIR__ . '/../..' . '/views/tire/confirm/tire_confirm_delete.class.php',
         'BikeController' => __DIR__ . '/../..' . '/controllers/bike_controller.class.php',
         'BikeCreate' => __DIR__ . '/../..' . '/views/bike/create/bike_create.class.php',
         'BikeDetail' => __DIR__ . '/../..' . '/views/bike/detail/bike_detail.class.php',
@@ -34,6 +36,7 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
         'Tire' => __DIR__ . '/../..' . '/models/tire.class.php',
         'TireConfirm' => __DIR__ . '/../..' . '/views/tire/confirm/tire_confirm.class.php',
+        'TireConfirmDelete' => __DIR__ . '/../..' . '/views/bike/confirm/bike_confirm_delete.class.php',
         'TireController' => __DIR__ . '/../..' . '/controllers/tire_controller.class.php',
         'TireCreate' => __DIR__ . '/../..' . '/views/tire/create/tire_create.class.php',
         'TireDetail' => __DIR__ . '/../..' . '/views/tire/detail/tire_detail.class.php',

@@ -161,4 +161,18 @@ class TireModel
 
 
     }
+    public function delete_tire($id){
+        $sql = "DELETE FROM " . $this->tblTires . " WHERE " . $this->tblTires . ".id='$id'";
+
+
+
+//execute the query and handle errors
+        $query = $this->dbConnection->query($sql);
+
+
+        if(!$query){
+            $errmsg = $this->dbConnection->error;
+            echo $errmsg;
+        }
+    }
 }

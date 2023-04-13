@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Accessory' => $baseDir . '/models/accessory.class.php',
     'AccessoryConfirm' => $baseDir . '/views/accessory/confirm/accessory_confirm.class.php',
+    'AccessoryConfirmDelete' => $baseDir . '/views/accessory/confirm/accessory_confirm_delete.class.php',
     'AccessoryController' => $baseDir . '/controllers/accessory_controller.class.php',
     'AccessoryCreate' => $baseDir . '/views/accessory/create/accessory_create.class.php',
     'AccessoryDetail' => $baseDir . '/views/accessory/detail/accessory_detail.class.php',
@@ -17,6 +18,7 @@ return array(
     'AccessorySearch' => $baseDir . '/views/accessory/search/accessory_search.class.php',
     'Bike' => $baseDir . '/models/bike.class.php',
     'BikeConfirm' => $baseDir . '/views/bike/confirm/bike_confirm.class.php',
+    'BikeConfirmDelete' => $baseDir . '/views/tire/confirm/tire_confirm_delete.class.php',
     'BikeController' => $baseDir . '/controllers/bike_controller.class.php',
     'BikeCreate' => $baseDir . '/views/bike/create/bike_create.class.php',
     'BikeDetail' => $baseDir . '/views/bike/detail/bike_detail.class.php',
@@ -33,6 +35,7 @@ return array(
     'IndexView' => $baseDir . '/views/index_view.class.php',
     'Tire' => $baseDir . '/models/tire.class.php',
     'TireConfirm' => $baseDir . '/views/tire/confirm/tire_confirm.class.php',
+    'TireConfirmDelete' => $baseDir . '/views/bike/confirm/bike_confirm_delete.class.php',
     'TireController' => $baseDir . '/controllers/tire_controller.class.php',
     'TireCreate' => $baseDir . '/views/tire/create/tire_create.class.php',
     'TireDetail' => $baseDir . '/views/tire/detail/tire_detail.class.php',

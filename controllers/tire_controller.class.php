@@ -97,6 +97,17 @@ class TireController
 
     }
 
+    public function confirm_delete($id) {
+//        echo "confirm";
+        $bikes = $this->tire_model->delete_tire($id);
+        echo $bikes;
+
+        $view = new TireConfirmDelete();
+        $view->display();
+
+    }
+
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class
