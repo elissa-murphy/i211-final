@@ -92,7 +92,8 @@ class TireModel
         $sql = "SELECT * FROM " . $this->tblTires;
 
         foreach ($terms as $term) {
-            $sql .= " WHERE name LIKE '%" . $term . "%'";
+            $sql .= " WHERE name LIKE '%" . $term . "%' OR maker LIKE '%" . $term . "%' OR price LIKE '%" . $term . "%' OR description LIKE '%" . $term . "%' OR rating LIKE '%" . $term . "%'";
+
         }
 
 //        $sql .= ")";

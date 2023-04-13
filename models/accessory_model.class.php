@@ -92,7 +92,7 @@ class AccessoryModel
         $sql = "SELECT * FROM " . $this->tblAccessories;
 
         foreach ($terms as $term) {
-            $sql .= " WHERE name LIKE '%" . $term . "%'";
+            $sql .= " WHERE name LIKE '%" . $term . "%' OR maker LIKE '%" . $term . "%' OR price LIKE '%" . $term . "%' OR description LIKE '%" . $term . "%'";
         }
 
 //        $sql .= ")";
