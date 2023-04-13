@@ -33,13 +33,13 @@ class TireDetail extends TireIndexView
                 </div>
                 <div>
                     <div style="display: flex; justify-content: space-evenly;">
-                        <p class="tire-title"><?= $name ?></p>
-                        <p>Maker: <?= $maker ?></p>
-                        <p>Rating: <?= $rating ?>/10</p>
-                        <p>Price:<?= $price ?></p>
+                        <p class="tire-title" style="padding: 0px 5px 0px 5px"><?= $name ?></p>
+                        <p style="padding: 0px 10px 0px 10px">Maker: <?= $maker ?></p>
+                        <p style="padding: 0px 10px 0px 10px">Rating: <?= $rating ?>/10</p>
+                        <p style="padding: 0px 10px 0px 10px">Price:<?= $price ?></p>
                     </div>
                     <div>
-                        <p><?= $description ?></p>
+                        <p style="width: 400px;">Description: <?= $description ?></p>
                     </div>
                     <div id="confirm-message"><?= $confirm ?></div>
                 </div>

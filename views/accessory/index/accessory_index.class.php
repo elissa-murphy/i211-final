@@ -23,11 +23,11 @@ class AccessoryIndex extends AccessoryIndexView
                     if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
                         $image = BASE_URL . "/" . ACCESSORY_IMG . $image;
                     }
-                    if ($i % 6 == 0) {
-                        echo "<div style='display: flex; justify-content: space-evenly; align-items: center; '>";
+                    if ($i % 5 == 0) {
+                        echo "<div style='display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap; '>";
                     }
 
-                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding-bottom: 100px;'><p><a href='", BASE_URL, "/accessory/detail/$id'><img src='" . $image .
+                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding: 32px; flex-direction: row; flex-wrap: wrap;'><p><a href='", BASE_URL, "/accessory/detail/$id'><img src='" . $image .
                         "' style='width: 200px;height: 150px;display: block;'><span>$name</a><br>" . $price . "</span></p></div>";
                     ?>
                     <?php

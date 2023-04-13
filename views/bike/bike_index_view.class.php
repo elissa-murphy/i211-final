@@ -8,21 +8,20 @@ class BikeIndexView extends IndexView {
             //the media type
             var media = "bike";
         </script>
-
+        <div class="secondary-header">
         <div id="searchbar">
             <form method="get" action="<?= BASE_URL ?>/bike/search">
                 <input type="text" name="query-terms" id="searchtextbox" placeholder="Search bikes" autocomplete="off" onkeyup="handleKeyUp(event)">
                 <input type="submit" value="Go" />
             </form>
             <div id="suggestionDiv"></div>
-
+        </div>
             <div id="create">
                 <form method="get" action="<?= BASE_URL ?>/bike/create">
                     <input type="submit" value="Add Bikes" />
                 </form>
             </div>
         </div>
-
         <?php
     }
 

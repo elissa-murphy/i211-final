@@ -8,6 +8,90 @@
     font-size: 20px;
 }
 
+.bike-grid-container {
+    /*width: 90%;*/
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
 .row{
     display: flex;
+}
+
+form.new-media {
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    width: 260px;
+    border-radius: 25px;
+    margin-bottom: 130px;
+}
+
+form.new-media input {
+    width: 250px;
+}
+
+.submit-btn {
+    margin: 0 auto;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #f8f8f8;
+    border: none;
+}
+
+.submit-btn:hover {
+    background-color: #000;
+    color: white;
+    border: none;
+}
+
+.new-media-title {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.secondary-header {
+    display: flex;
+    justify-content: right;
+    flex-direction: row;
+    background-color: #f8f8f8;
+    border: 1px solid black;
+    padding: 15px;
+    margin-bottom: 32px;
+}
+
+.secondary-header div#searchbar,
+.secondary-header div#create {
+    padding: 0px 10px 0px 10px;
+}
+
+#main-header {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.confirm-body {
+    background: #f8f8f8;
+    width: 500px;
+    margin: 0 auto;
+    padding: 64px 0px;
+    margin-bottom: 280px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+}
+
+.confirm-btn {
+    text-align: center;
+    padding-top: 15px;
+    color: black;
+    text-decoration: none;
+    border-bottom: none;
+    outline: none;
+}
+.confirm-btn:hover {
+    color: black;
+    text-decoration: underline;
 }

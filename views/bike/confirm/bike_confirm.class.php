@@ -11,11 +11,20 @@ parent::displayHeader("Create Bike");
 <!DOCTYPE "HTML">
 <html>
 <head>
-    <title>Create Bike</title>
+    <title>Add a Bike</title>
     <link type="text/css" rel="stylesheet" href="www/css/styles.css" />
 </head>
 <body>
-<p>You have added an bike.</p>
+<div class="confirm-body">
+    <div>
+        <h3 style="text-align: center; margin: 0 auto;">You have successfully added a bike!<h3>
+    </div>
+    <div>
+        <a class="confirm-btn" href="<?= BASE_URL ?>/bike/index">
+            <div> View All Bikes</div>
+        </a>
+    </div>
+</div>
 
 <a style="color: white;" href="<?= BASE_URL ?>/bike/index">
     <div> View Bikes</div>

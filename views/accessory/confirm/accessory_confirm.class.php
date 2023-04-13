@@ -11,15 +11,23 @@ parent::displayHeader("Create Accessories");
 <!DOCTYPE "HTML">
 <html>
 <head>
-    <title>Create Accessory</title>
+    <title>Add a Accessory</title>
     <link type="text/css" rel="stylesheet" href="www/css/styles.css" />
 </head>
 <body>
-<p>You have added an accessory.</p>
+<div class="confirm-body">
+    <div>
+        <h3 style="text-align: center">You have successfully added an accessory!<h3>
+    </div>
+    <div>
+        <a class="confirm-btn" href="<?= BASE_URL ?>/accessory/index">
+            <div> View All Accessories</div>
+        </a>
+    </div>
+</div>
 
-<a style="color: white;" href="<?= BASE_URL ?>/accessory/index">
-    <div> View Accessories</div>
-</a>
+
+
 </body>
     <?php
     //display page footer

@@ -9,7 +9,7 @@ class AccessoryIndexView extends IndexView
             //the media type
             var media = "accessory";
         </script>
-
+        <div class="secondary-header">
         <div id="searchbar">
                         <form method="get" action="<?= BASE_URL ?>/accessory/search">
                             <input type="text" name="query-terms" id="searchtextbox" placeholder="Search accessories" autocomplete="off" onkeyup="handleKeyUp(event)">
@@ -17,13 +17,12 @@ class AccessoryIndexView extends IndexView
                         </form>
                         <div id="suggestionDiv"></div>
         </div>
-
-        <div id="create">
-            <form method="get" action="<?= BASE_URL ?>/accessory/create">
-                <input type="submit" value="Add Accessories" />
-            </form>
+            <div id="create">
+                <form method="get" action="<?= BASE_URL ?>/accessory/create">
+                    <input type="submit" value="Add Accessories" />
+                </form>
+            </div>
         </div>
-
         <?php
     }
 

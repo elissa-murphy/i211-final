@@ -18,23 +18,23 @@ class BikeCreate extends BikeIndexView
         <!DOCTYPE "HTML">
         <html>
     <head>
-        <title>Create Bike</title>
+        <title>Add Bike</title>
         <link type="text/css" rel="stylesheet" href="www/css/styles.css" />
     </head>
     <body>
-    <h2>Create a Accessory</h2>
+    <h2 class="new-media-title">Add a Bike</h2>
     <form class="new-media" action='<?= BASE_URL?>/bike/confirm' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
-        <p><strong>Name</strong><br>
+        <p><strong>Name</strong>:<br>
             <input name="name" type="text" size="100" id="name" required autofocus></p>
-        <p><strong>Maker</strong><br>
+        <p><strong>Maker</strong>:<br>
             <input name="maker" type="text" size="100" id="maker" required autofocus></p>
-        <p><strong>Price</strong>:
+        <p><strong>Price</strong>:<br>
             <input name="price" type="number" step="0.01" required /></p>
-        <p><strong>Description</strong><br>
+        <p><strong>Description</strong>:<br>
             <input name="description" type="text" size="100" id="description" required autofocus></p>
-        <p><strong>Image</strong><br>
+        <p><strong>Image URL</strong>:<br>
             <input name="image" type="text" size="100" required /></p>
-        <input type="submit" value="Submit" >
+        <input class="submit-btn" type="submit" value="Submit" >
     </form>
     </body>
 
