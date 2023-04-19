@@ -10,7 +10,8 @@ class Database {
         'database' => 'bikes_db',
         'tblBikes' => 'bikes',
         'tblTires' => 'tires',
-        'tblAccessories' => 'accessories'
+        'tblAccessories' => 'accessories',
+        'tblUsers' => 'users'
     );
     //define the database connection object
     private $objDBConnection = NULL;
@@ -51,6 +52,10 @@ class Database {
 
     public function getAccessoriesTable() {
         return $this->param['tblAccessories'];
+    }
+
+    public function getUserTable() {
+        return $this->param['tblUsers'];
     }
 
 }

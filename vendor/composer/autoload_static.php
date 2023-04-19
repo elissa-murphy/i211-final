@@ -44,6 +44,11 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'TireIndexView' => __DIR__ . '/../..' . '/views/tire/tire_index_view.class.php',
         'TireModel' => __DIR__ . '/../..' . '/models/tire_model.class.php',
         'TireSearch' => __DIR__ . '/../..' . '/views/tire/search/tire_search.class.php',
+        'User' => __DIR__ . '/../..' . '/models/user.class.php',
+        'UserController' => __DIR__ . '/../..' . '/controllers/user_controller.class.php',
+        'UserIndex' => __DIR__ . '/../..' . '/views/user/index/user_index.class.php',
+        'UserIndexView' => __DIR__ . '/../..' . '/views/user/user_index_view.class.php',
+        'UserModel' => __DIR__ . '/../..' . '/models/user_model.class.php',
         'WelcomeController' => __DIR__ . '/../..' . '/controllers/welcome_controller.class.php',
         'WelcomeIndex' => __DIR__ . '/../..' . '/views/welcome/welcome_index.class.php',
     );

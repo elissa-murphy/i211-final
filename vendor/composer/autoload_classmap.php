@@ -43,6 +43,11 @@ return array(
     'TireIndexView' => $baseDir . '/views/tire/tire_index_view.class.php',
     'TireModel' => $baseDir . '/models/tire_model.class.php',
     'TireSearch' => $baseDir . '/views/tire/search/tire_search.class.php',
+    'User' => $baseDir . '/models/user.class.php',
+    'UserController' => $baseDir . '/controllers/user_controller.class.php',
+    'UserIndex' => $baseDir . '/views/user/index/user_index.class.php',
+    'UserIndexView' => $baseDir . '/views/user/user_index_view.class.php',
+    'UserModel' => $baseDir . '/models/user_model.class.php',
     'WelcomeController' => $baseDir . '/controllers/welcome_controller.class.php',
     'WelcomeIndex' => $baseDir . '/views/welcome/welcome_index.class.php',
 );
