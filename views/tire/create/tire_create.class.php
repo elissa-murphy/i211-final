@@ -3,7 +3,7 @@
 /**
  * Author: Jacob Catalan & Elissa Murphy
  * Date: 4/11/2023
- * File: bike_create.class.php
+ * File: tire_create.class.php
  * Description:
  */
 

@@ -25,6 +25,21 @@ class UserController
         $view->display($users);
     }
 
+    public function create() {
+        $view = new UserCreate();
+        $view->display();
+    }
+
+    public function confirm() {
+        $users = $this->user_model->create_user();
+        echo $users;
+
+        $view = new UserConfirm();
+        $view->display();
+
+    }
+
+
     //handle an error
 //    public function error($message) {
 //        //create an object of the Error class

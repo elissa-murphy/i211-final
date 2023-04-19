@@ -63,4 +63,34 @@ class UserModel
         }
         return $users;
     }
+
+    public function create_user(){
+//        echo "confirm 2";
+        //if the script did not receive post data, display an error message and then terminate the script immediately
+        if (!filter_has_var(INPUT_POST, 'firstName') ||
+            !filter_has_var(INPUT_POST, 'lastName') ||
+            !filter_has_var(INPUT_POST, 'email')
+        ) {
+            return false;
+        }
+
+        //retrieve data for the new accessory; data are sanitized and escaped for security.
+        $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
+        $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+
+        //query string
+        $sql = "INSERT INTO " . $this->tblUsers . " VALUES (NULL, '$firstName', '$lastName','$email')";
+
+        //execute the query
+        $query =  $this->dbConnection->query($sql);
+
+        //if no query, set error message
+        if(!$query){
+            $errmsg = $this->dbConnection->error;
+            echo $errmsg;
+        }
+
+
+    }
 }

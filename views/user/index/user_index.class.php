@@ -32,7 +32,7 @@ class UserIndex extends UserIndexView
         <br><br><br><br>
 
         <div>
-        <a href="<?= BASE_URL ?>/user/sign">Sign up for the Community List</a>
+        <a href="<?= BASE_URL ?>/user/create">Sign up for the Community List</a>
             <br><br><br><br>
     </div>
         <?php
