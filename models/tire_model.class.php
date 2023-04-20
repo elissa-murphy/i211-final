@@ -175,4 +175,67 @@ class TireModel
             echo $errmsg;
         }
     }
+
+    public function add($id){
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+        } else {
+            $cart = array();
+        }
+
+//retrieve id
+        $id = '';
+        if(filter_has_var(INPUT_GET, 'id')) {
+            $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        }
+// If  id is empty, it is invalid.
+        if(!$id) {
+
+            die();
+        }
+
+        if (array_key_exists($id, $cart)) {
+            $cart[$id] = $cart[$id] + 1;
+        } else {
+            $cart[$id] = 1;
+        }
+
+//update the session variable
+        $_SESSION['cart'] = $cart;
+
+
+    }
+
+    public function shopping_cartT(){
+        if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
+            echo "Your shopping cart is empty.<br><br>";
+            exit();
+        }
+
+//proceed since the cart is not empty
+        $cart = $_SESSION['cart'];
+
+//select statement
+        $sql = "SELECT * FROM " . $this->tblTires . " WHERE 0";
+        foreach (array_keys($cart) as $id) {
+            $sql .= " OR id=$id";
+        }
+
+//execute the query
+        $query = $this->dbConnection->query($sql);
+
+//fetch Accessories
+        while ($row = $query->fetch_assoc()) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $price = $row['price'];
+            $qty = $cart[$id];
+            $subtotal = $qty * $price;
+        }
+
+    }
 }

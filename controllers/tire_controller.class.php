@@ -107,6 +107,17 @@ class TireController
 
     }
 
+    public function add($id) {
+//        echo "confirm";
+        $bikes = $this->tire_model->add($id);
+        echo $bikes;
+
+        $view = new TireConfirmDelete();
+        $view->display();
+
+
+    }
+
 
     //handle an error
 //    public function error($message) {

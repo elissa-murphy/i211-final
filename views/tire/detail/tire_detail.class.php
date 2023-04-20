@@ -50,6 +50,11 @@ class TireDetail extends TireIndexView
                     <input type="submit" value="Delete Tires" />
                 </form>
             </div>
+            <div id="create">
+                <form method="get" action="<?= BASE_URL ?>/tire/add/<?=$id?>">
+                    <input type="submit" value="Add to Cart" />
+                </form>
+            </div>
 
             <a href="<?= BASE_URL ?>/tire/index"><- Back</a>
         </div>

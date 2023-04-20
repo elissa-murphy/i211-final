@@ -175,4 +175,33 @@ class BikeModel {
         }
     }
 
+    public function shopping_cartB(){
+        if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
+            echo "Your shopping cart is empty.<br><br>";
+            exit();
+        }
+
+//proceed since the cart is not empty
+        $cart = $_SESSION['cart'];
+
+//select statement
+        $sql = "SELECT * FROM " . $this->tblBikes. " WHERE 0";
+        foreach (array_keys($cart) as $id) {
+            $sql .= " OR id=$id";
+        }
+
+//execute the query
+        $query = $this->dbConnection->query($sql);
+
+//fetch Accessories
+        while ($row = $query->fetch_assoc()) {
+            $id = $row['id'];
+            $name = $row['name'];
+            $price = $row['price'];
+            $qty = $cart[$id];
+            $subtotal = $qty * $price;
+        }
+
+    }
+
 }
