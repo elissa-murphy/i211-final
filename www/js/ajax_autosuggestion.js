@@ -2,8 +2,8 @@
  * This script contains AJAX methods
  */
 var xmlHttp;
-var numTitles = 0;  //total number of suggested bikes titles
-var activeTitle = -1;  //bikes title currently being selected
+var numNames = 0;  //total number of suggested bikes names
+var activeName = -1;  //bikes name currently being selected
 var searchBoxObj, suggestionBoxObj;
 
 //this function creates a XMLHttpRequest object. It should work with most types of browsers.
@@ -50,10 +50,10 @@ function suggest(query) {
         // proceed only if the transaction has completed and the transaction completed successfully
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
             // extract the JSON received from the server
-            var titles = JSON.parse(xmlHttp.responseText);
-            //console.log(titlesJSON);
-            // display suggested titles in a div block
-            displayTitles(titles);
+            var names = JSON.parse(xmlHttp.responseText);
+            //console.log(namesJSON);
+            // display suggested names in a div block
+            displayNames(names);
         }
     };
 
@@ -62,23 +62,23 @@ function suggest(query) {
 }
 
 
-/* This function populates the suggestion box with spans containing all the titles
+/* This function populates the suggestion box with spans containing all the Names
  * The parameter of the function is a JSON object
  * */
-function displayTitles(titles) {
-    numTitles = titles.length;
-    //console.log(numTitles);
-    activeTitle = -1;
-    if (numTitles === 0) {
+function displayNames(names) {
+    numNames = names.length;
+    //console.log(numNames);
+    activeName = -1;
+    if (numNames === 0) {
         //hide all suggestions
         suggestionBoxObj.style.display = 'none';
         return false;
     }
 
     var divContent = "";
-    //retrive the titles from the JSON doc and create a new span for each title
-    for (i = 0; i < titles.length; i++) {
-        divContent += "<span id=s_" + i + " onclick='clickTitle(this)'>" + titles[i] + "</span>";
+    //retrive the Names from the JSON doc and create a new span for each name
+    for (i = 0; i < names.length; i++) {
+        divContent += "<span id=s_" + i + " onclick='clickName(this)'>" + names[i] + "</span>";
     }
     //display the spans in the div block
     suggestionBoxObj.innerHTML = divContent;
@@ -99,36 +99,36 @@ function handleKeyUp(e) {
     }
 
     //if the up arrow key is pressed
-    if (e.keyCode === 38 && activeTitle > 0) {
+    if (e.keyCode === 38 && activeName > 0) {
         //add code here to handle up arrow key. e.g. select the previous item
-        activeTitleObj.style.backgroundColor = "#FFF";
-        activeTitle--;
-        activeTitleObj = document.getElementById("s_" + activeTitle);
-        activeTitleObj.style.backgroundColor = "#F5DEB3";
-        searchBoxObj.value = activeTitleObj.innerHTML;
+        activeNameObj.style.backgroundColor = "#FFF";
+        activeName--;
+        activeNameObj = document.getElementById("s_" + activeName);
+        activeNameObj.style.backgroundColor = "#F5DEB3";
+        searchBoxObj.value = activeNameObj.innerHTML;
         return;
     }
 
     //if the down arrow key is pressed
-    if (e.keyCode === 40 && activeTitle < numTitles - 1) {
+    if (e.keyCode === 40 && activeName < numNames - 1) {
         //add code here to handle down arrow key, e.g. select the next item
 
-        if(typeof(activeTitleObj) != "undefined") {
-            activeTitleObj.style.backgroundColor = "#FFF";
+        if(typeof(activeNameObj) != "undefined") {
+            activeNameObj.style.backgroundColor = "#FFF";
         }
-        activeTitle++;
-        activeTitleObj = document.getElementById("s_" + activeTitle);
-        activeTitleObj.style.backgroundColor = "#F5DEB3";
-        searchBoxObj.value = activeTitleObj.innerHTML;
+        activeName++;
+        activeNameObj = document.getElementById("s_" + activeName);
+        activeNameObj.style.backgroundColor = "#F5DEB3";
+        searchBoxObj.value = activeNameObj.innerHTML;
     }
 }
 
 
 
-//when a title is clicked, fill the search box with the title and then hide the suggestion list
-function clickTitle(title) {
-    //display the title in the search box
-    searchBoxObj.value = title.innerHTML;
+//when a name is clicked, fill the search box with the name and then hide the suggestion list
+function clickName(name) {
+    //display the name in the search box
+    searchBoxObj.value = name.innerHTML;
 
     //hide all suggestions
     suggestionBoxObj.style.display = 'none';

@@ -86,17 +86,18 @@ class BikeModel {
     }
 
     public function search_bike($terms) {
-        $terms = explode(" ", $terms); //explode multiple terms into an array
+        //explode multiple terms into an array
+        $terms = explode(" ", $terms);
+
         //select statement for AND search
         $sql = "SELECT * FROM " . $this->tblBikes;
 
         foreach ($terms as $term) {
-            $sql .= " WHERE name LIKE '%" . $term . "%' OR maker LIKE '%" . $term . "%' OR price LIKE '%" . $term . "%' OR description LIKE '%" . $term . "%'";
+//            $sql .= " WHERE name LIKE '%" . $term . "%' OR price LIKE '%" . $term . "%' OR description LIKE '%" . $term . "%'";
+            $sql .= " WHERE name LIKE '%" . $term . "%'";
         }
 
-//        OR WHERE description LIKE '%" . $term . "%' OR WHERE price LIKE '%" . $term . "%' OR WHERE maker LIKE '%" . $term . "%'
 
-//        $sql .= ")";
 
         //execute the query
         $query = $this->dbConnection->query($sql);

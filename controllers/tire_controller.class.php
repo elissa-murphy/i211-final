@@ -71,15 +71,15 @@ class TireController
         $query_terms = urldecode(trim($terms));
         $tires = $this->tire_model->search_tire($query_terms);
 
-        //retrieve all tire titles and store them in an array
-        $titles = array();
+        //retrieve all tire names and store them in an array
+        $names = array();
         if ($tires) {
             foreach ($tires as $tire) {
-                $titles[] = $tire->getTitle();
+                $names[] = $tire->getName();
             }
         }
 
-        echo json_encode($tires);
+        echo json_encode($names);
     }
 
     public function create() {

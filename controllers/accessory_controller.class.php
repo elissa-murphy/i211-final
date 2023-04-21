@@ -70,15 +70,15 @@ class AccessoryController
         $query_terms = urldecode(trim($terms));
         $accessories = $this->accessory_model->search_accessory($query_terms);
 
-        //retrieve all accessory titles and store them in an array
-        $titles = array();
+        //retrieve all accessory names and store them in an array
+        $names = array();
         if ($accessories) {
             foreach ($accessories as $accessory) {
-                $titles[] = $accessory->getTitle();
+                $names[] = $accessory->getName();
             }
         }
 
-        echo json_encode($accessories);
+        echo json_encode($names);
     }
 
     public function create() {

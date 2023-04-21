@@ -70,15 +70,15 @@ class BikeController
         $query_terms = urldecode(trim($terms));
         $bikes = $this->bike_model->search_bike($query_terms);
 
-        //retrieve all bike titles and store them in an array
-        $titles = array();
+        //retrieve all bike names and store them in an array
+        $names = array();
         if ($bikes) {
             foreach ($bikes as $bike) {
-                $titles[] = $bike->getTitle();
+                $names[] = $bike->getName();
             }
         }
 
-        echo json_encode($bikes);
+        echo json_encode($names);
     }
 
     public function create() {
@@ -113,5 +113,15 @@ class BikeController
 //        //display the error page
 //        $error->display($message);
 //    }
+
+    //handle calling inaccessible methods
+    public function __call($name, $arguments) {
+        //$message = "Route does not exist.";
+        // Note: value of $name is case sensitive.
+        $message = "Calling method '$name' caused errors. Route does not exist.";
+
+        $this->error($message);
+        return;
+    }
 
 }
