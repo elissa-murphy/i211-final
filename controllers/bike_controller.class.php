@@ -55,8 +55,7 @@ class BikeController
 
         if ($bikes === false) {
             //handle error
-            $message = "An error has occurred.";
-//            $this->error($message);
+            echo "There has been a error";
             return;
         }
         //display matched bikes
@@ -77,7 +76,11 @@ class BikeController
                 $names[] = $bike->getName();
             }
         }
-
+        if ($bikes === false) {
+            //handle error
+            echo "There has been a error";
+            return;
+        }
         echo json_encode($names);
     }
 
@@ -93,7 +96,11 @@ class BikeController
 
         $view = new BikeConfirm();
         $view->display();
-
+        if ($bikes === false) {
+            //handle error
+            echo "There has been a error";
+            return;
+        }
     }
 
     public function confirm_delete($id) {
@@ -103,6 +110,11 @@ class BikeController
 
         $view = new BikeConfirmDelete();
         $view->display();
+        if ($bikes === false) {
+            //handle error
+            echo "There has been a error";
+            return;
+        }
 
     }
 

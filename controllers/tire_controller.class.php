@@ -78,7 +78,11 @@ class TireController
                 $names[] = $tire->getName();
             }
         }
-
+        if ($tires === false) {
+            //handle error
+            echo "there has been a error";
+            return;
+        }
         echo json_encode($names);
     }
 
@@ -91,9 +95,14 @@ class TireController
 //        echo "confirm";
         $tire = $this->tire_model->create_tire();
         echo $tire;
-
+        if ($tire === false) {
+            //handle error
+            echo "there has been a error";
+            return;
+        }
         $view = new TireConfirm();
         $view->display();
+
 
     }
 
@@ -101,7 +110,11 @@ class TireController
 //        echo "confirm";
         $bikes = $this->tire_model->delete_tire($id);
         echo $bikes;
-
+        if ($bikes === false) {
+            //handle error
+            echo "there has been a error";
+            return;
+        }
         $view = new TireConfirmDelete();
         $view->display();
 
@@ -111,7 +124,11 @@ class TireController
 //        echo "confirm";
         $bikes = $this->tire_model->add($id);
         echo $bikes;
-
+        if ($bikes === false) {
+            //handle error
+            echo "there has been a error";
+            return;
+        }
         $view = new TireConfirmDelete();
         $view->display();
 

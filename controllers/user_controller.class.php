@@ -33,7 +33,11 @@ class UserController
     public function confirm() {
         $users = $this->user_model->create_user();
         echo $users;
-
+        if ($users === false) {
+            //handle error
+            echo "there has been a error";
+            return;
+        }
         $view = new UserConfirm();
         $view->display();
 

@@ -77,6 +77,11 @@ class AccessoryController
                 $names[] = $accessory->getName();
             }
         }
+        if ($accessories === false) {
+            //handle error
+            echo "error has occured";
+            return;
+        }
 
         echo json_encode($names);
     }
@@ -93,6 +98,12 @@ class AccessoryController
         $accessories = $this->accessory_model->delete_accessory($id);
         echo $accessories;
 
+        if ($accessories === false) {
+            //handle error
+            echo "error has occured";
+            return;
+        }
+
         $view = new AccessoryConfirmDelete();
         $view->display();
 
@@ -102,12 +113,18 @@ class AccessoryController
         $accessories = $this->accessory_model->create_accessory();
         echo $accessories;
 
+        if ($accessories === false) {
+            //handle error
+            echo "error has occured";
+            return;
+        }
+
         $view = new AccessoryConfirm();
         $view->display();
 
     }
 
-    //handle an error
+
 //    public function error($message) {
 //        //create an object of the Error class
 //        $error = new AccessoryError();
