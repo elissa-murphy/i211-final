@@ -17,12 +17,14 @@ class UserController
         if (!$users) {
             //display an error
             $message = "There was a problem displaying users.";
-            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            // display all users
+            $view = new UserIndex();
+            $view->display($users);
         }
-        // display all users
-        $view = new UserIndex();
-        $view->display($users);
+
     }
 
     public function create() {
@@ -35,11 +37,14 @@ class UserController
         echo $users;
         if ($users === false) {
             //handle error
-            echo "there has been a error";
-            return;
+            $message = "there has been a error";
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            $view = new UserConfirm();
+            $view->display();
         }
-        $view = new UserConfirm();
-        $view->display();
+
 
     }
 

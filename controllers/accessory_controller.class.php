@@ -17,12 +17,15 @@ class AccessoryController
         if (!$accessories) {
             //display an error
             $message = "There was a problem displaying accessories.";
-            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+
+        }else{
+            // display all accessories
+            $view = new AccessoryIndex();
+            $view->display($accessories);
         }
-        // display all accessories
-        $view = new AccessoryIndex();
-        $view->display($accessories);
+
     }
 
     //show details of a accessory
@@ -32,12 +35,15 @@ class AccessoryController
         if (!$accessory) {
             //display an error
             $message = "There was a problem displaying the accessory id='" . $id . "'.";
-            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            //display accessory details
+            $view = new AccessoryDetail();
+            $view->display($accessory);
         }
-        //display accessory details
-        $view = new AccessoryDetail();
-        $view->display($accessory);
+
+
     }
 
     //search accessories
@@ -56,12 +62,14 @@ class AccessoryController
         if ($accessories === false) {
             //handle error
             $message = "An error has occurred.";
-//            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+        }else {
+            //display matched accessories
+            $search = new AccessorySearch();
+            $search->display($query_terms, $accessories);
         }
-        //display matched accessories
-        $search = new AccessorySearch();
-        $search->display($query_terms, $accessories);
+
     }
 
     //autosuggestion
@@ -79,8 +87,9 @@ class AccessoryController
         }
         if ($accessories === false) {
             //handle error
-            echo "error has occured";
-            return;
+            $message = "there has been a error";
+            $view = new ErrorView();
+            $view->display($message);
         }
 
         echo json_encode($names);
@@ -100,12 +109,15 @@ class AccessoryController
 
         if ($accessories === false) {
             //handle error
-            echo "error has occured";
-            return;
+            $message = "Error has Occured";
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            $view = new AccessoryConfirmDelete();
+            $view->display();
         }
 
-        $view = new AccessoryConfirmDelete();
-        $view->display();
+
 
     }
     public function confirm() {
@@ -115,12 +127,15 @@ class AccessoryController
 
         if ($accessories === false) {
             //handle error
-            echo "error has occured";
-            return;
+            $message = "there has been a error";
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            $view = new AccessoryConfirm();
+            $view->display();
         }
 
-        $view = new AccessoryConfirm();
-        $view->display();
+
 
     }
 

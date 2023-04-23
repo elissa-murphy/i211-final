@@ -17,12 +17,14 @@ class BikeController
         if (!$bikes) {
             //display an error
             $message = "There was a problem displaying bikes.";
-            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            $view = new BikeIndex();
+            $view->display($bikes);
         }
         // display all bikes
-        $view = new BikeIndex();
-        $view->display($bikes);
+
     }
 
     //show details of a bike
@@ -32,12 +34,15 @@ class BikeController
         if (!$bike) {
             //display an error
             $message = "There was a problem displaying the bike id='" . $id . "'.";
-            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            //display bike details
+            $view = new BikeDetail();
+            $view->display($bike);
         }
-        //display bike details
-        $view = new BikeDetail();
-        $view->display($bike);
+
+
     }
 
     //search bikes
@@ -55,12 +60,15 @@ class BikeController
 
         if ($bikes === false) {
             //handle error
-            echo "There has been a error";
-            return;
+            $message = "there has been a error";
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            //display matched bikes
+            $search = new BikeSearch();
+            $search->display($query_terms, $bikes);
         }
-        //display matched bikes
-        $search = new BikeSearch();
-        $search->display($query_terms, $bikes);
+
     }
 
     //autosuggestion
@@ -76,11 +84,7 @@ class BikeController
                 $names[] = $bike->getName();
             }
         }
-        if ($bikes === false) {
-            //handle error
-            echo "There has been a error";
-            return;
-        }
+
         echo json_encode($names);
     }
 
@@ -94,12 +98,14 @@ class BikeController
         $bikes = $this->bike_model->create_bike();
         echo $bikes;
 
-        $view = new BikeConfirm();
-        $view->display();
+
         if ($bikes === false) {
             //handle error
-            echo "There has been a error";
-            return;
+            $view = new ErrorView();
+            $view->display();
+        }else{
+            $view = new BikeConfirm();
+            $view->display();
         }
     }
 
@@ -112,8 +118,9 @@ class BikeController
         $view->display();
         if ($bikes === false) {
             //handle error
-            echo "There has been a error";
-            return;
+            $message = "there has been a error";
+            $view = new ErrorView();
+            $view->display($message);
         }
 
     }

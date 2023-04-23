@@ -18,12 +18,14 @@ class TireController
         if (!$tires) {
             //display an error
             $message = "There was a problem displaying tires.";
-            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            // display all tires
+            $view = new TireIndex();
+            $view->display($tires);
         }
-        // display all tires
-        $view = new TireIndex();
-        $view->display($tires);
+
     }
 
     //show details of a tire
@@ -33,12 +35,14 @@ class TireController
         if (!$tire) {
             //display an error
             $message = "There was a problem displaying the tire id='" . $id . "'.";
-            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            //display tire details
+            $view = new TireDetail();
+            $view->display($tire);
         }
-        //display tire details
-        $view = new TireDetail();
-        $view->display($tire);
+
     }
 
     //search tires
@@ -57,12 +61,14 @@ class TireController
         if ($tires === false) {
             //handle error
             $message = "An error has occurred.";
-//            $this->error($message);
-            return;
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            //display matched tires
+            $search = new TireSearch();
+            $search->display($query_terms, $tires);
         }
-        //display matched tires
-        $search = new TireSearch();
-        $search->display($query_terms, $tires);
+
     }
 
     //autosuggestion
@@ -78,11 +84,7 @@ class TireController
                 $names[] = $tire->getName();
             }
         }
-        if ($tires === false) {
-            //handle error
-            echo "there has been a error";
-            return;
-        }
+
         echo json_encode($names);
     }
 
@@ -97,11 +99,14 @@ class TireController
         echo $tire;
         if ($tire === false) {
             //handle error
-            echo "there has been a error";
-            return;
+            $message = "there has been a error";
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            $view = new TireConfirm();
+            $view->display();
         }
-        $view = new TireConfirm();
-        $view->display();
+
 
 
     }
@@ -112,11 +117,14 @@ class TireController
         echo $bikes;
         if ($bikes === false) {
             //handle error
-            echo "there has been a error";
-            return;
+            $message = "there has been some Errors";
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            $view = new TireConfirmDelete();
+            $view->display();
         }
-        $view = new TireConfirmDelete();
-        $view->display();
+
 
     }
 
@@ -126,11 +134,14 @@ class TireController
         echo $bikes;
         if ($bikes === false) {
             //handle error
-            echo "there has been a error";
-            return;
+            $message = "there has been some errors";
+            $view = new ErrorView();
+            $view->display($message);
+        }else{
+            $view = new TireConfirmDelete();
+            $view->display();
         }
-        $view = new TireConfirmDelete();
-        $view->display();
+
 
 
     }
