@@ -89,22 +89,11 @@ class AccessoryModel
     public function search_accessory($terms) {
         $terms = explode(" ", $terms); //explode multiple terms into an array
         //select statement for AND search
-        $sql = "SELECT * FROM " . $this->tblAccessories;
+        $sql = "SELECT * FROM " . $this->tblAccessories . " WHERE 0 ";
 
         foreach ($terms as $term) {
-            $sql .= " WHERE name LIKE '%" . $term . "%' OR maker LIKE '%" . $term . "%' OR price LIKE '%" . $term . "%' OR description LIKE '%" . $term . "%'";
+            $sql .= " OR name LIKE '%$term%' OR price LIKE '%$term%' OR description LIKE '%$term%' ";
         }
-
-//        $sql .= ")";
-
-//
-//        $sql = "SELECT * FROM " . $this->tblAccessories;
-//
-//        foreach ($terms as $term) {
-//            $sql .= " WHERE name LIKE '%" . $term . "%' OR maker LIKE '%" . $term . "%' OR price LIKE '%" . $term . "%' OR description LIKE '%" . $term . "%'";
-//        }
-//
-//        $sql .= ")";
 
 
         //execute the query

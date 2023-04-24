@@ -89,14 +89,13 @@ class TireModel
     public function search_tire($terms) {
         $terms = explode(" ", $terms); //explode multiple terms into an array
         //select statement for AND search
-        $sql = "SELECT * FROM " . $this->tblTires;
+        $sql = "SELECT * FROM " . $this->tblTires . " WHERE 0 ";
 
         foreach ($terms as $term) {
-            $sql .= " WHERE name LIKE '%" . $term . "%' OR maker LIKE '%" . $term . "%' OR price LIKE '%" . $term . "%' OR description LIKE '%" . $term . "%' OR rating LIKE '%" . $term . "%'";
-
+            $sql .= " OR name LIKE '%$term%' OR price LIKE '%$term%' OR description LIKE '%$term%' ";
         }
 
-//        $sql .= ")";
+//echo $sql;
 
         //execute the query
         $query = $this->dbConnection->query($sql);
