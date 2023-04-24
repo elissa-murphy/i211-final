@@ -156,6 +156,8 @@ class BikeModel {
         if(!$query){
             $errmsg = $this->dbConnection->error;
             echo $errmsg;
+            $view = new ErrorView();
+            $view->display($errmsg);
         }
 
 
@@ -173,6 +175,8 @@ class BikeModel {
         if(!$query){
             $errmsg = $this->dbConnection->error;
             echo $errmsg;
+            $view = new ErrorView();
+            $view->display($errmsg);
         }
     }
 

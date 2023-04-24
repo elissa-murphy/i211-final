@@ -164,6 +164,8 @@ class AccessoryModel
         if(!$query){
             $errmsg = $this->dbConnection->error;
             echo $errmsg;
+            $view = new ErrorView();
+            $view->display($errmsg);
         }
 
 
@@ -181,6 +183,8 @@ class AccessoryModel
         if(!$query){
             $errmsg = $this->dbConnection->error;
             echo $errmsg;
+            $view = new ErrorView();
+            $view->display($errmsg);
         }
     }
 
