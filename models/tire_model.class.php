@@ -159,6 +159,46 @@ class TireModel
             $view = new ErrorView();
             $view->display($errmsg);
         }
+        if (isset($_GET['name']) && isset($_GET['maker']) && isset($_GET['price']) && isset($_GET['description']) && isset($_GET['image']) && isset($_GET['rating'])){
+            $name = $_GET['name'];
+            $maker = $_GET['maker'];
+            $price = $_GET['price'];
+            $description = $_GET['description'];
+            $image = $_GET['image'];
+            $rating = $_GET['rating'];
+        }
+        try {
+            if($name == ""){
+                throw new RequiredValue("Fatal Error Name is Missing");
+            }
+            if($maker == ""){
+                throw new RequiredValue("Fatal Error Maker is Missing");
+            }
+            if($price == ""){
+                throw new RequiredValue("Fatal Error Price is Missing");
+            }
+            if($description == ""){
+                throw new RequiredValue("Fatal Error Description is Missing");
+            }
+            if($image == ""){
+                throw new RequiredValue("Fatal Error Image is Missing");
+            }
+            if($rating == ""){
+                throw new RequiredValue("Fatal Error Rating is Missing");
+            }
+            if(!is_numeric($price)){
+                throw new Datatype(gettype($price), "number");
+            }
+            if(!is_numeric($rating)){
+                throw new Datatype(gettype($rating), "number");
+            }
+        }
+        catch (Datatype $e){
+            $message = $e->getMessage();
+        }
+        catch (RequiredValue $e){
+            $message = $e->getMessage();
+        }
 
 
     }
