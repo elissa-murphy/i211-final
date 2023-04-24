@@ -34,6 +34,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Database' => $baseDir . '/application/database.class.php',
     'Dispatcher' => $baseDir . '/application/dispatcher.class.php',
+    'ErrorView' => $baseDir . '/views/error/error.php',
     'IndexView' => $baseDir . '/views/index_view.class.php',
     'Tire' => $baseDir . '/models/tire.class.php',
     'TireConfirm' => $baseDir . '/views/tire/confirm/tire_confirm.class.php',

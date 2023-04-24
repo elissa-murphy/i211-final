@@ -17,7 +17,7 @@ class AccessoryConfirmDelete extends AccessoryIndexView
     <body>
     <div class="confirm-body">
         <div>
-            <h3 style="text-align: center">You have successfully Deleted an accessory!<h3>
+            <h3 style="text-align: center">You have successfully deleted an accessory!<h3>
         </div>
         <div>
             <a class="confirm-btn" href="<?= BASE_URL ?>/accessory/index">

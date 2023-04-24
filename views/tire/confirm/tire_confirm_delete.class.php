@@ -17,7 +17,7 @@ class BikeConfirmDelete extends BikeIndexView
     <body>
     <div class="confirm-body">
         <div>
-            <h3 style="text-align: center">You have successfully Deleted an tire!<h3>
+            <h3 style="text-align: center">You have successfully deleted a tire!<h3>
         </div>
         <div>
             <a class="confirm-btn" href="<?= BASE_URL ?>/tire/index">

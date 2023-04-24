@@ -35,6 +35,7 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Database' => __DIR__ . '/../..' . '/application/database.class.php',
         'Dispatcher' => __DIR__ . '/../..' . '/application/dispatcher.class.php',
+        'ErrorView' => __DIR__ . '/../..' . '/views/error/error.php',
         'IndexView' => __DIR__ . '/../..' . '/views/index_view.class.php',
         'Tire' => __DIR__ . '/../..' . '/models/tire.class.php',
         'TireConfirm' => __DIR__ . '/../..' . '/views/tire/confirm/tire_confirm.class.php',
