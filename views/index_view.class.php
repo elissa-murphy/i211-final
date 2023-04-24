@@ -44,9 +44,9 @@ class IndexView {
                           <a style="color: white; padding-left: 15px;" href="<?= BASE_URL ?>/user/index">
                              <div>Community</div>
                          </a>
-                         <a style="color: white; padding-left: 15px;" href="<?= BASE_URL ?>/cart/index">
-                             <div>Cart</div>
-                         </a>
+<!--                         <a style="color: white; padding-left: 15px;" href="--><?//= BASE_URL ?><!--/cart/index">-->
+<!--                             <div>Cart</div>-->
+<!--                         </a>-->
 <!--                            <a style="color: white;" href="--><?//= BASE_URL ?><!--/accessory/create">-->
 <!--                             <div>Add Accessories</div>-->
 <!--                         </a>-->
