@@ -123,15 +123,15 @@ class AccessoryController
         echo $accessories;
 
 
-        if (!$accessories) {
-            //handle error
-            $message = "there has been a error";
-//            $view = new ErrorView();
-//            $view->display($message);
-        }else{
+//        if (!$accessories) {
+//            //handle error
+//            $message = "there has been a error";
+////            $view = new ErrorView();
+////            $view->display($message);
+//        }else{
             $view = new AccessoryConfirm();
             $view->display();
-        }
+//        }
     }
 
 

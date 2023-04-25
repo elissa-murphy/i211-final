@@ -99,15 +99,15 @@ class BikeController
         echo $bikes;
 
 
-        if (!$bikes) {
-            //handle error
-            $message = "there has been a error";
-//            $view = new ErrorView();
-//            $view->display($message);
-        }else{
+//        if (!$bikes) {
+//            //handle error
+//            $message = "there has been a error";
+////            $view = new ErrorView();
+////            $view->display($message);
+//        }else{
             $view = new BikeConfirm();
             $view->display();
-        }
+//        }
     }
 
     public function confirm_delete($id) {

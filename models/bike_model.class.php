@@ -184,11 +184,13 @@ class BikeModel {
         }
         catch (Datatype $e){
             $message = $e->getMessage();
+            exit();
         }
         catch (RequiredValue $e){
             $message = $e->getMessage();
             $view = new ErrorView();
             $view->display($message);
+            exit();
         }
 
         //generate a JSON object for the error response

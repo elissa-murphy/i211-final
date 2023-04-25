@@ -163,12 +163,15 @@ class TireModel
             }
             if($image == ""){
                 throw new RequiredValue("Fatal Error Image is Missing");
+
             }
             if($rating == ""){
                 throw new RequiredValue("Fatal Error Rating is Missing");
+
             }
             if(!is_numeric($price)){
                 throw new Datatype(gettype($price), "number");
+
             }
             if(!is_numeric($rating)){
                 throw new Datatype(gettype($rating), "number");
@@ -191,11 +194,16 @@ class TireModel
         }
         catch (Datatype $e){
             $message = $e->getMessage();
+//            return false;
+            exit();
         }
         catch (RequiredValue $e){
             $message = $e->getMessage();
             $view = new ErrorView();
             $view->display($message);
+//            return false;
+            exit();
+
         }
 
         //generate a JSON object for the error response
