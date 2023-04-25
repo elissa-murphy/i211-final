@@ -127,17 +127,20 @@ class TireModel
 
     public function create_tire(){
 //        echo "confirm 2";
-        //if the script did not receive post data, display an error message and then terminate the script immediately
-        if (!filter_has_var(INPUT_POST, 'name') ||
-            !filter_has_var(INPUT_POST, 'maker') ||
-            !filter_has_var(INPUT_POST, 'price') ||
-            !filter_has_var(INPUT_POST, 'description') ||
-            !filter_has_var(INPUT_POST, 'image') ||
-            !filter_has_var(INPUT_POST, 'rating')
-        ) {
-            return false;
-        }
 
+
+
+        //if the script did not receive post data, display an error message and then terminate the script immediately
+//        if (!filter_has_var(INPUT_POST, 'name') ||
+//            !filter_has_var(INPUT_POST, 'maker') ||
+//            !filter_has_var(INPUT_POST, 'price') ||
+//            !filter_has_var(INPUT_POST, 'description') ||
+//            !filter_has_var(INPUT_POST, 'image') ||
+//            !filter_has_var(INPUT_POST, 'rating')
+//        ) {
+//            return false;
+//        }
+        try {
         //retrieve data for the new accessory; data are sanitized and escaped for security.
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         $maker= filter_input(INPUT_POST, 'maker', FILTER_SANITIZE_STRING);
@@ -146,28 +149,6 @@ class TireModel
         $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
         $rating = filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING);
 
-        //query string
-        $sql = "INSERT INTO " . $this->tblTires . " VALUES (NULL, '$name', '$maker','$price', '$description' , '$image', '$rating')";
-
-        //execute the query
-        $query =  $this->dbConnection->query($sql);
-
-        //if no query, set error message
-        if(!$query){
-            $errmsg = $this->dbConnection->error;
-            echo $errmsg;
-            $view = new ErrorView();
-            $view->display($errmsg);
-        }
-        if (isset($_GET['name']) && isset($_GET['maker']) && isset($_GET['price']) && isset($_GET['description']) && isset($_GET['image']) && isset($_GET['rating'])){
-            $name = $_GET['name'];
-            $maker = $_GET['maker'];
-            $price = $_GET['price'];
-            $description = $_GET['description'];
-            $image = $_GET['image'];
-            $rating = $_GET['rating'];
-        }
-        try {
             if($name == ""){
                 throw new RequiredValue("Fatal Error Name is Missing");
             }
@@ -192,13 +173,34 @@ class TireModel
             if(!is_numeric($rating)){
                 throw new Datatype(gettype($rating), "number");
             }
+
+        //query string
+        $sql = "INSERT INTO " . $this->tblTires . " VALUES (NULL, '$name', '$maker','$price', '$description' , '$image', '$rating')";
+
+        //execute the query
+        $query =  $this->dbConnection->query($sql);
+
+        //if no query, set error message
+        if(!$query){
+            $errmsg = $this->dbConnection->error;
+            echo $errmsg;
+            $view = new ErrorView();
+            $view->display($errmsg);
+        }
+
         }
         catch (Datatype $e){
             $message = $e->getMessage();
         }
         catch (RequiredValue $e){
             $message = $e->getMessage();
+            $view = new ErrorView();
+            $view->display($message);
         }
+
+        //generate a JSON object for the error response
+        $response = array("message" => $message);
+        echo json_encode($response);
 
 
     }

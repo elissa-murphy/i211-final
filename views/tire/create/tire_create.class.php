@@ -37,6 +37,7 @@ class TireCreate extends TireIndexView
         <p><strong>Rating</strong>:<br>
             <input name="rating" type="number" size="100" id="rating" /></p>
         <input class="submit-btn" type="submit" value="Submit" >
+        <div id="message"></div>
     </form>
     </body>
 

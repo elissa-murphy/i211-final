@@ -131,21 +131,41 @@ class BikeModel {
     public function create_bike(){
 //        echo "confirm 2";
         //if the script did not receive post data, display an error message and then terminate the script immediately
-        if (!filter_has_var(INPUT_POST, 'name') ||
-            !filter_has_var(INPUT_POST, 'maker') ||
-            !filter_has_var(INPUT_POST, 'price') ||
-            !filter_has_var(INPUT_POST, 'description') ||
-            !filter_has_var(INPUT_POST, 'image')
-        ) {
-            return false;
-        }
-
+//        if (!filter_has_var(INPUT_POST, 'name') ||
+//            !filter_has_var(INPUT_POST, 'maker') ||
+//            !filter_has_var(INPUT_POST, 'price') ||
+//            !filter_has_var(INPUT_POST, 'description') ||
+//            !filter_has_var(INPUT_POST, 'image')
+//        ) {
+//            return false;
+//        }
+        try {
         //retrieve data for the new accessory; data are sanitized and escaped for security.
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         $maker= filter_input(INPUT_POST, 'maker', FILTER_SANITIZE_STRING);
         $price =filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
         $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
         $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
+
+            if($name == ""){
+                throw new RequiredValue("Fatal Error Name is Missing");
+            }
+            if($maker == ""){
+                throw new RequiredValue("Fatal Error Maker is Missing");
+            }
+            if($price == ""){
+                throw new RequiredValue("Fatal Error Price is Missing");
+            }
+            if($description == ""){
+                throw new RequiredValue("Fatal Error Description is Missing");
+            }
+            if($image == ""){
+                throw new RequiredValue("Fatal Error Image is Missing");
+            }
+            if(!is_numeric($price)){
+                throw new Datatype(gettype($price), "number");
+            }
+
 
         //query string
         $sql = "INSERT INTO " . $this->tblBikes . " VALUES (NULL, '$name', '$maker','$price', '$description' , '$image')";
@@ -160,6 +180,20 @@ class BikeModel {
             $view = new ErrorView();
             $view->display($errmsg);
         }
+
+        }
+        catch (Datatype $e){
+            $message = $e->getMessage();
+        }
+        catch (RequiredValue $e){
+            $message = $e->getMessage();
+            $view = new ErrorView();
+            $view->display($message);
+        }
+
+        //generate a JSON object for the error response
+        $response = array("message" => $message);
+        echo json_encode($response);
 
 
     }

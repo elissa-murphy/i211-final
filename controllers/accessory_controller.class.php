@@ -107,7 +107,7 @@ class AccessoryController
         $accessories = $this->accessory_model->delete_accessory($id);
         echo $accessories;
 
-        if ($accessories === false) {
+        if (!$accessories) {
             //handle error
             $message = "Error has Occured";
             $view = new ErrorView();
@@ -116,27 +116,22 @@ class AccessoryController
             $view = new AccessoryConfirmDelete();
             $view->display();
         }
-
-
-
     }
     public function confirm() {
 //        echo "confirm";
         $accessories = $this->accessory_model->create_accessory();
         echo $accessories;
 
-        if ($accessories === false) {
+
+        if (!$accessories) {
             //handle error
             $message = "there has been a error";
-            $view = new ErrorView();
-            $view->display($message);
+//            $view = new ErrorView();
+//            $view->display($message);
         }else{
             $view = new AccessoryConfirm();
             $view->display();
         }
-
-
-
     }
 
 

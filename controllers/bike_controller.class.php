@@ -99,10 +99,11 @@ class BikeController
         echo $bikes;
 
 
-        if ($bikes === false) {
+        if (!$bikes) {
             //handle error
-            $view = new ErrorView();
-            $view->display();
+            $message = "there has been a error";
+//            $view = new ErrorView();
+//            $view->display($message);
         }else{
             $view = new BikeConfirm();
             $view->display();
