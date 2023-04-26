@@ -24,7 +24,7 @@ class IndexView {
         </head>
         <body>
             <div id='wrapper'>
-                 <div id="banner" style="background-color: black; padding: 20px;  display: flex; margin: 0 auto; justify-content: space-evenly;">
+                 <div id="banner" style="background-color: #506931; padding: 20px;  display: flex; margin: 0 auto; justify-content: space-evenly;">
                     <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Bike Shop">
                          <div id="left">
 <!--                    <img src='--><?//= BASE_URL ?><!--/www/img/logo.png' style="width: 180px; border: none" />-->
@@ -61,7 +61,7 @@ class IndexView {
 <!--                        <br><br><br>-->
 <!--                        <div id="push"></div>-->
 <!--                    </div>-->
-                <div id="footer" style="text-align: center; background-color: black; color: #fffffa; height: 100px; padding-top: 25px; height: 50px;">&copy 2023 Bike Shop. All Rights Reserved. - Elissa Murphy & Jacob Catalan</div>
+                <div id="footer" style="text-align: center; background-color: #506931; color: #fffffa; height: 100px; padding-top: 25px; height: 50px;">&copy 2023 Bike Shop. All Rights Reserved. - Elissa Murphy & Jacob Catalan</div>
                 <script type="text/javascript" src="<?= BASE_URL ?>/www/js/ajax_autosuggestion.js"></script>
             </body>
         </html>

@@ -20,10 +20,8 @@ class TireDetail extends TireIndexView
         }
         ?>
 
-        <h2 id="main-header"><?= $name ?> Details</h2>
-        <!-- display bike details -->
-
-
+        <h2 id="main-header"><?= $name ?></h2>
+        <!-- display tire details -->
         <div style="padding-bottom: 150px;">
             <div style="display: flex; justify-content: space-evenly;">
                 <div>
@@ -33,7 +31,6 @@ class TireDetail extends TireIndexView
                 </div>
                 <div>
                     <div style="display: flex; justify-content: space-evenly;">
-                        <p class="tire-title" style="padding: 0px 5px 0px 5px"><?= $name ?></p>
                         <p style="padding: 0px 10px 0px 10px">Maker: <?= $maker ?></p>
                         <p style="padding: 0px 10px 0px 10px">Rating: <?= $rating ?>/10</p>
                         <p style="padding: 0px 10px 0px 10px">Price:<?= $price ?></p>
@@ -50,12 +47,6 @@ class TireDetail extends TireIndexView
                     <input type="submit" value="Delete Tire" />
                 </form>
             </div>
-<!--            <div id="create">-->
-<!--                <form method="get" action="--><?//= BASE_URL ?><!--/tire/add/--><?//=$id?><!--">-->
-<!--                    <input type="submit" value="Add to Cart" />-->
-<!--                </form>-->
-<!--            </div>-->
-
             <a href="<?= BASE_URL ?>/tire/index"><- Back</a>
         </div>
         <?php

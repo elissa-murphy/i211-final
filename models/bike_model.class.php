@@ -93,8 +93,6 @@ class BikeModel {
         $sql = "SELECT * FROM " . $this->tblBikes . " WHERE 0 ";
 
         foreach ($terms as $term) {
-//            $sql .= " WHERE name LIKE '%" . $term . "%' OR price LIKE '%" . $term . "%' OR description LIKE '%" . $term . "%'";
-           // $sql .= " WHERE name LIKE '%" . $term . "%'";
             $sql .= " OR name LIKE '%$term%' OR price LIKE '%$term%' OR description LIKE '%$term%' ";
         }
 

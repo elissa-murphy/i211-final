@@ -13,13 +13,13 @@ class AccessoryIndexView extends IndexView
         <div id="searchbar">
                         <form method="get" action="<?= BASE_URL ?>/accessory/search">
                             <input type="text" name="query-terms" id="searchtextbox" placeholder="Search accessories" autocomplete="off" onkeyup="handleKeyUp(event)">
-                            <input type="submit" value="Go" />
+                            <input class="searchGoBtn" type="submit" value="Go" />
                         </form>
                         <div id="suggestionDiv"></div>
         </div>
             <div id="create">
                 <form method="get" action="<?= BASE_URL ?>/accessory/create">
-                    <input type="submit" value="Add Accessories" />
+                    <input class="searchGoBtn"  type="submit" value="Add Accessories" />
                 </form>
             </div>
         </div>

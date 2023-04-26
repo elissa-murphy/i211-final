@@ -21,42 +21,49 @@ class AccessoryDetail extends AccessoryIndexView
         }
         ?>
 
-        <h2 id="main-header"><?= $name ?> Details</h2>
+        <h2 id="main-header"><?= $name ?></h2>
         <!-- display accessory details -->
-
-
-        <div style="padding-bottom: 150px;">
-            <div style="display: flex; justify-content: space-evenly;">
+            <div class="detailPage-container">
                 <div>
-                    <div style="width: 350px; height: 350px;">
+                    <div class="detailPage-ImageContainer">
                        <img src="<?= $image ?>" alt="Accessory Main" style='width: 350px;height: 250px;display: block;'/>
                     </div>
                 </div>
-                <div>
+
+
+                <div class="detailPage-InfoContainer">
                     <div style="display: flex; justify-content: space-evenly;">
-                        <p style="padding: 0px 10px 0px 10px"><?= $name ?></p>
-                        <p style="padding: 0px 10px 0px 10px">Maker: <?= $maker ?></p>
-                        <p style="padding: 0px 10px 0px 10px">Price: <?= $price ?></p>
+                        <div class="detailPage-Maker">Maker:<p><?= $maker ?></p></div>
+                        <div class="detailPage-Price">Price:<p>$<?= $price ?></p></div>
                     </div>
+
                     <div>
-                        <p style="width: 400px;">Description: <?= $description ?></p>
+                        <div class="detailPage-Desc">Description:<p><?= $description ?></p></div>
                     </div>
+
                     <div id="confirm-message"><?= $confirm ?></div>
+
+                    <div id="create">
+                        <form method="get" action="<?= BASE_URL ?>/accessory/confirm_delete/<?=$id?>">
+                            <input class="deleteProduct-Input" type="submit" value="Delete Accessory" />
+                        </form>
+                    </div>
                 </div>
 
             </div>
 
-        </div>
-        <div id="create">
-            <form method="get" action="<?= BASE_URL ?>/accessory/confirm_delete/<?=$id?>">
-                <input type="submit" value="Delete Accessory" />
-            </form>
-        </div>
-        </div>
+
+<!--        <div id="create">-->
+<!--            <form method="get" action="--><?//= BASE_URL ?><!--/accessory/confirm_delete/--><?//=$id?><!--">-->
+<!--                <input type="submit" value="Delete Accessory" />-->
+<!--            </form>-->
+<!--        </div>-->
 
 
-            <a href="<?= BASE_URL ?>/accessory/index"><- Back</a>
-        </div>
+
+            <a class="backBtn" href="<?= BASE_URL ?>/accessory/index"><- Back</a>
+        <br>      <br>      <br>      <br>
+
         <?php
         //display page footer
         parent::displayFooter();

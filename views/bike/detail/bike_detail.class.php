@@ -26,7 +26,7 @@ class BikeDetail extends BikeIndexView {
         }
         ?>
 
-        <h2 id="main-header"><?= $name ?> Details</h2>
+        <h2 id="main-header"><?= $name ?></h2>
         <!-- display bike details -->
 
 
@@ -39,7 +39,7 @@ class BikeDetail extends BikeIndexView {
             </div>
             <div>
                 <div style="display: flex; justify-content: space-evenly;">
-                    <p><?= $name ?></p>
+
                     <p style="padding: 0px 10px 0px 10px">Maker: <?= $maker ?></p>
                     <p style="padding: 0px 10px 0px 10px">Price: <?= $price ?></p>
                 </div>
