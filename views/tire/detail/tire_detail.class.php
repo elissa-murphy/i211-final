@@ -47,14 +47,14 @@ class TireDetail extends TireIndexView
             </div>
             <div id="create">
                 <form method="get" action="<?= BASE_URL ?>/tire/confirm_delete/<?=$id?>">
-                    <input type="submit" value="Delete Tires" />
+                    <input type="submit" value="Delete Tire" />
                 </form>
             </div>
-            <div id="create">
-                <form method="get" action="<?= BASE_URL ?>/tire/add/<?=$id?>">
-                    <input type="submit" value="Add to Cart" />
-                </form>
-            </div>
+<!--            <div id="create">-->
+<!--                <form method="get" action="--><?//= BASE_URL ?><!--/tire/add/--><?//=$id?><!--">-->
+<!--                    <input type="submit" value="Add to Cart" />-->
+<!--                </form>-->
+<!--            </div>-->
 
             <a href="<?= BASE_URL ?>/tire/index"><- Back</a>
         </div>

@@ -1,6 +1,6 @@
 <?php
 
-class TireConfirmDelete extends BikeIndexView
+class BikeConfirmDelete extends BikeIndexView
 {
     public function display() {
 //display page header

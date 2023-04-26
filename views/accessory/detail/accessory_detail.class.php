@@ -49,7 +49,7 @@ class AccessoryDetail extends AccessoryIndexView
         </div>
         <div id="create">
             <form method="get" action="<?= BASE_URL ?>/accessory/confirm_delete/<?=$id?>">
-                <input type="submit" value="Delete Accessories" />
+                <input type="submit" value="Delete Accessory" />
             </form>
         </div>
         </div>

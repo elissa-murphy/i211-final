@@ -103,48 +103,13 @@ class TireController
     }
 
     public function confirm_delete($id) {
-
         $bikes = $this->tire_model->delete_tire($id);
         echo $bikes;
-        if (!$bikes) {
-            //handle error
-            $message = "there has been some Errors";
-            $view = new ErrorView();
-            $view->display($message);
-        }else{
-            $view = new TireConfirmDelete();
-            $view->display();
-        }
 
+        $view = new TireConfirmDelete();
+        $view->display();
 
     }
-
-    public function add($id) {
-//        echo "confirm";
-        $bikes = $this->tire_model->add($id);
-        echo $bikes;
-        if ($bikes === false) {
-            //handle error
-            $message = "there has been some errors";
-            $view = new ErrorView();
-            $view->display($message);
-        }else{
-            $view = new TireConfirmDelete();
-            $view->display();
-        }
-
-
-
-    }
-
-
-    //handle an error
-//    public function error($message) {
-//        //create an object of the Error class
-//        $error = new TireError();
-//        //display the error page
-//        $error->display($message);
-//    }
 
 
 }

@@ -100,46 +100,22 @@ class AccessoryController
         $view->display();
     }
 
-
-
     public function confirm_delete($id) {
-//        echo "confirm";
         $accessories = $this->accessory_model->delete_accessory($id);
         echo $accessories;
 
-        if (!$accessories) {
-            //handle error
-            $message = "Error has Occured";
-            $view = new ErrorView();
-            $view->display($message);
-        }else{
-            $view = new AccessoryConfirmDelete();
-            $view->display();
-        }
+        $view = new AccessoryConfirmDelete();
+        $view->display();
     }
+
+
     public function confirm() {
-//        echo "confirm";
         $accessories = $this->accessory_model->create_accessory();
         echo $accessories;
 
 
-//        if (!$accessories) {
-//            //handle error
-//            $message = "there has been a error";
-////            $view = new ErrorView();
-////            $view->display($message);
-//        }else{
-            $view = new AccessoryConfirm();
-            $view->display();
-//        }
+        $view = new AccessoryConfirm();
+        $view->display();
     }
-
-
-//    public function error($message) {
-//        //create an object of the Error class
-//        $error = new AccessoryError();
-//        //display the error page
-//        $error->display($message);
-//    }
 
 }

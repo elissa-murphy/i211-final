@@ -94,45 +94,23 @@ class BikeController
     }
 
     public function confirm() {
-//        echo "confirm";
         $bikes = $this->bike_model->create_bike();
         echo $bikes;
 
+        $view = new BikeConfirm();
+        $view->display();
 
-//        if (!$bikes) {
-//            //handle error
-//            $message = "there has been a error";
-////            $view = new ErrorView();
-////            $view->display($message);
-//        }else{
-            $view = new BikeConfirm();
-            $view->display();
-//        }
     }
 
     public function confirm_delete($id) {
-//        echo "confirm";
         $bikes = $this->bike_model->delete_bike($id);
         echo $bikes;
 
         $view = new BikeConfirmDelete();
         $view->display();
-        if ($bikes === false) {
-            //handle error
-            $message = "there has been a error";
-            $view = new ErrorView();
-            $view->display($message);
-        }
 
     }
 
-    //handle an error
-//    public function error($message) {
-//        //create an object of the Error class
-//        $error = new BikeError();
-//        //display the error page
-//        $error->display($message);
-//    }
 
     //handle calling inaccessible methods
     public function __call($name, $arguments) {

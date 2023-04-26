@@ -52,7 +52,7 @@ class BikeDetail extends BikeIndexView {
         </div>
     <div id="create">
         <form method="get" action="<?= BASE_URL ?>/bike/confirm_delete/<?=$id?>">
-            <input type="submit" value="Delete Bikes" />
+            <input type="submit" value="Delete Bike" />
         </form>
     </div>
 
