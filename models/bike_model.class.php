@@ -16,7 +16,7 @@ class BikeModel {
     static private $_instance = NULL;
     private $tblBikes;
 
-    //To use singleton pattern, this constructor is made private. To get an instance of the class, the getBikeModel method must be called.
+    //constructor
     private function __construct() {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
@@ -33,7 +33,7 @@ class BikeModel {
         }
     }
 
-    //static method to ensure there is just one BikeModel instance
+    //one BikeModel instance
     public static function getBikeModel() {
         if (self::$_instance == NULL) {
             self::$_instance = new BikeModel();
@@ -41,6 +41,8 @@ class BikeModel {
         return self::$_instance;
     }
 
+
+    //display list of bikes, retrieve info from database
     public function display_bike() {
         $sql = "SELECT * FROM " . $this->tblBikes;
 
@@ -94,6 +96,8 @@ class BikeModel {
         return false;
     }
 
+
+    //search bike table
     public function search_bike($terms) {
         //explode multiple terms into an array
         $terms = explode(" ", $terms);
@@ -134,7 +138,10 @@ class BikeModel {
         return $bikes;
     }
 
+    //add bike to database
     public function create_bike(){
+
+        //exceptions handled with try, throw, catch
         try {
         //retrieve data for the new accessory; data are sanitized and escaped for security.
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -143,6 +150,8 @@ class BikeModel {
         $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
         $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
 
+
+            //if field empty, throw exception
             if($name == ""){
                 throw new RequiredValue("Bike name is missing in the Add a Bike form.");
             }
@@ -158,6 +167,8 @@ class BikeModel {
             if($image == ""){
                 throw new RequiredValue("Bike image URL is missing in the Add a Bike form.");
             }
+
+            //if datatype incorrect, throw exception
             if(!is_numeric($price)){
                 throw new Datatype(gettype($price), "number");
             }
@@ -177,6 +188,7 @@ class BikeModel {
             $view->display($errmsg);
         }
 
+            // catch exceptions & display error message
         }
         catch (Datatype $e){
             $message = $e->getMessage();
@@ -196,10 +208,12 @@ class BikeModel {
         echo json_encode($response);
     }
 
+
+    //delete function - delete bike from database
     public function delete_bike($id){
         $sql = "DELETE FROM " . $this->tblBikes . " WHERE " . $this->tblBikes . ".id='$id'";
 
-    //execute the query and handle errors
+        //execute the query and handle errors
         $query = $this->dbConnection->query($sql);
 
         if(!$query){

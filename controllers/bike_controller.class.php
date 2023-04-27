@@ -29,10 +29,10 @@ class BikeController
             $view = new ErrorView();
             $view->display($message);
         }else{
+            // display all bikes
             $view = new BikeIndex();
             $view->display($bikes);
         }
-        // display all bikes
 
     }
 
@@ -97,11 +97,14 @@ class BikeController
         echo json_encode($names);
     }
 
+    //create function - displays form to add bike
     public function create() {
         $view = new BikeCreate();
         $view->display();
     }
 
+
+    //confirm function - displays confirmation message that bike was added
     public function confirm() {
         $bikes = $this->bike_model->create_bike();
         echo $bikes;
@@ -111,6 +114,7 @@ class BikeController
 
     }
 
+    //confirm delete function - displays confirmation message that bike was deleted
     public function confirm_delete($id) {
         $bikes = $this->bike_model->delete_bike($id);
         echo $bikes;
@@ -119,7 +123,6 @@ class BikeController
         $view->display();
 
     }
-
 
     //handle calling inaccessible methods
     public function __call($name, $arguments) {

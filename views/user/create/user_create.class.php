@@ -13,9 +13,8 @@ class UserCreate extends UserIndexView {
     public function display() {
         //display page header
         parent::displayHeader("Sign Up");
-
-
         ?>
+
     <h2 class="new-media-title" style="margin-top: 64px; padding-top: 64px">Sign Up</h2>
     <form class="new-media" action='<?= BASE_URL?>/user/confirm' method="post" style="border: 1px solid #bbb; margin-top: 10px; padding: 10px;">
         <p><strong>First Name</strong>:<br>

@@ -11,7 +11,8 @@
 
 class TireIndex extends TireIndexView
 {
-    public function display($tires) {
+    public function display($tires)
+    {
         //display page header
         parent::displayHeader("List All Tires");
 
@@ -30,7 +31,7 @@ class TireIndex extends TireIndexView
                     $price = $tire->getPrice();
                     $image = $tire->getImage();
 
-                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+                    if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                         $image = BASE_URL . "/" . TIRE_IMG . $image;
                     }
                     if ($i % 5 == 0) {

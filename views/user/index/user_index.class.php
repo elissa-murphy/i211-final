@@ -41,6 +41,7 @@ class UserIndex extends UserIndexView
             </table>
             <br><br><br><br>
 
+
             <div>
                 <a class="backBtn" href="<?= BASE_URL ?>/user/create">Sign up for the Community List</a>
                 <br><br><br><br>

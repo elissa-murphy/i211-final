@@ -33,14 +33,15 @@ class UserController
             $view = new UserIndex();
             $view->display($users);
         }
-
     }
 
+    //create function - displays form to add a user
     public function create() {
         $view = new UserCreate();
         $view->display();
     }
 
+    //confirm function - displays confirmation message that user was added
     public function confirm() {
         $users = $this->user_model->create_user();
         echo $users;

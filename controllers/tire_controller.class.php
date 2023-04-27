@@ -24,6 +24,7 @@ class TireController
     public function index() {
         //retrieve all tires and store them in an array
         $tires = $this->tire_model->display_tire();
+
         if (!$tires) {
             //display an error
             $message = "There was a problem displaying tires.";
@@ -41,6 +42,7 @@ class TireController
     public function detail($id) {
         //retrieve the specific tire
         $tire = $this->tire_model->view_tire($id);
+
         if (!$tire) {
             //display an error
             $message = "There was a problem displaying the tire id='" . $id . "'.";
@@ -97,13 +99,16 @@ class TireController
         echo json_encode($names);
     }
 
+
+    //create function - displays form to add tire
     public function create() {
         $view = new TireCreate();
         $view->display();
     }
 
-    public function confirm() {
 
+    //confirm function - displays confirmation message that tire was added
+    public function confirm() {
         $tire = $this->tire_model->create_tire();
         echo $tire;
 
@@ -111,14 +116,12 @@ class TireController
         $view->display();
     }
 
+    //confirm delete function - displays confirmation message that tire was deleted
     public function confirm_delete($id) {
         $bikes = $this->tire_model->delete_tire($id);
         echo $bikes;
 
         $view = new TireConfirmDelete();
         $view->display();
-
     }
-
-
 }

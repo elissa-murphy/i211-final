@@ -11,14 +11,15 @@
 
 class AccessorySearch extends AccessoryIndexView
 {
-    public function display($terms, $accessories) {
+    public function display($terms, $accessories)
+    {
         //display page header
         parent::displayHeader("Search Results");
         ?>
         <div id="main-header"> Search Results for <i><?= $terms ?></i></div>
         <span class="rcd-numbers">
             <?php
-            echo ((!is_array($accessories)) ? "( 0 - 0 )" : "( 1 - " . count($accessories) . " )");
+            echo((!is_array($accessories)) ? "( 0 - 0 )" : "( 1 - " . count($accessories) . " )");
             ?>
         </span>
         <hr>
@@ -36,7 +37,7 @@ class AccessorySearch extends AccessoryIndexView
                     $price = $accessory->getPrice();
                     $image = $accessory->getImage();
 
-                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+                    if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                         $image = BASE_URL . "/" . ACCESSORY_IMG . $image;
                     }
                     if ($i % 6 == 0) {
@@ -54,7 +55,7 @@ class AccessorySearch extends AccessoryIndexView
             }
             ?>
         </div>
-        <a href="<?= BASE_URL ?>/accessory/index">Go to accessory list</a>
+        <a href="<?= BASE_URL ?>/accessory/index">Go to Accessory List</a>
         <?php
         //display page footer
         parent::displayFooter();

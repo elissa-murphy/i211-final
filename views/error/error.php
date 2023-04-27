@@ -9,24 +9,25 @@
  */
 
 
-
 ?>
 
 <?php
 
-class ErrorView extends IndexView {
+class ErrorView extends IndexView
+{
 
-    public function display($message) {
+    public function display($message)
+    {
         //display page header
         parent::displayHeader("Error");
         ?>
         <div class="errorContainer">
             <div>
-                <img src = '<?= BASE_URL ?>/www/img/error.png' style = "width: 80px; border: none"/>
+                <img src='<?= BASE_URL ?>/www/img/error.png' style="width: 80px; border: none"/>
             </div>
             <div>
                 <h2> An Error has Occurred.</h2>
-                <div style = "color: red">
+                <div style="color: red">
                     <?= urldecode($message)
                     ?>
                 </div>

@@ -18,7 +18,8 @@ class UserModel
     private $tblUsers;
 
     //constructor
-    private function __construct() {
+    private function __construct()
+    {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
         $this->tblUsers = $this->db->getUserTable();
@@ -34,31 +35,33 @@ class UserModel
         }
     }
 
-    //static method to ensure there is just one UserModel instance
-    public static function getUserModel() {
+    //one UserModel instance
+    public static function getUserModel()
+    {
         if (self::$_instance == NULL) {
             self::$_instance = new UserModel();
         }
         return self::$_instance;
     }
 
-    public function display_user() {
+    //display list of users, retrieve info from database
+    public function display_user()
+    {
         $sql = "SELECT * FROM " . $this->tblUsers;
 
         //execute the query
         $query = $this->dbConnection->query($sql);
 
-        // if the query failed, return false.
+        // if the query failed, return false
         if (!$query)
             return false;
 
-        //if the query succeeded, but no user was found.
+        //if the query succeeded, but no user found
         if ($query->num_rows == 0)
             return 0;
 
-        //handle the result
-        //create an array to store all returned users
-           $users = array();
+        //handle the result, create an array
+        $users = array();
 
         //loop through all rows in the returned record sets
         while ($obj = $query->fetch_object()) {
@@ -73,24 +76,18 @@ class UserModel
         return $users;
     }
 
-    public function create_user(){
-        //if the script did not receive post data, display an error message and then terminate the script immediately
-//        if (!filter_has_var(INPUT_POST, 'firstName') ||
-//            !filter_has_var(INPUT_POST, 'lastName') ||
-//            !filter_has_var(INPUT_POST, 'email')
-//        ) {
-//            return false;
-//        }
+    //add user to database
+    public function create_user()
+    {
 
-
-
+        //exceptions handled with try, throw, catch
         try {
             //retrieve data for the new accessory; data are sanitized and escaped for security.
             $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
             $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
             $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
 
-
+            //if field empty, throw exception
             if ($firstName == "") {
                 throw new RequiredValue("First name is missing in community sign up form.");
             }
@@ -100,7 +97,6 @@ class UserModel
             if ($email == "") {
                 throw new RequiredValue("Email is missing in community sign up form.");
             }
-
 
             //query string
             $sql = "INSERT INTO " . $this->tblUsers . " VALUES (NULL, '$firstName', '$lastName','$email')";
@@ -115,19 +111,18 @@ class UserModel
                 $view = new ErrorView();
                 $view->display($errmsg);
             }
-        }
-        catch (RequiredValue $e){
-                $message = $e->getMessage();
-                $view = new ErrorView();
-                $view->display($message);
-                exit();
 
-            }
- //generate a JSON object for the error response
+            // catch exceptions & display error message
+        } catch (RequiredValue $e) {
+            $message = $e->getMessage();
+            $view = new ErrorView();
+            $view->display($message);
+            exit();
+
+        }
+
+        //generate a JSON object for the error response
         $response = array("message" => $message);
         echo json_encode($response);
-
-
     }
-
 }

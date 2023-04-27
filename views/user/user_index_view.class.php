@@ -11,12 +11,14 @@
 
 class UserIndexView extends IndexView
 {
+    //display parent header
     public static function displayHeader($title) {
         parent::displayHeader($title)
         ?>
         <?php
     }
 
+    //display parent footer
     public static function displayFooter() {
         parent::displayFooter();
     }

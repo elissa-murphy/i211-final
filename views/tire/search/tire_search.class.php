@@ -54,7 +54,7 @@ class TireSearch extends TireIndexView
             }
             ?>
         </div>
-        <a href="<?= BASE_URL ?>/tire/index">Go to tire list</a>
+        <a href="<?= BASE_URL ?>/tire/index">Go to Tire List</a>
         <?php
         //display page footer
         parent::displayFooter();

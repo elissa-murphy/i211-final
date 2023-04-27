@@ -17,7 +17,7 @@ class TireModel
     static private $_instance = NULL;
     private $tblTires;
 
-    //To use singleton pattern, this constructor is made private. To get an instance of the class, the getTireModel method must be called.
+    //Constructor
     private function __construct() {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
@@ -34,7 +34,7 @@ class TireModel
         }
     }
 
-    //static method to ensure there is just one TireModel instance
+    //one TireModel instance
     public static function getTireModel() {
         if (self::$_instance == NULL) {
             self::$_instance = new TireModel();
@@ -42,6 +42,7 @@ class TireModel
         return self::$_instance;
     }
 
+    //display list of tires, retrieve info from database
     public function display_tire() {
         $sql = "SELECT * FROM " . $this->tblTires;
 
@@ -95,8 +96,11 @@ class TireModel
         return false;
     }
 
+    //search tire table
     public function search_tire($terms) {
-        $terms = explode(" ", $terms); //explode multiple terms into an array
+        //explode multiple terms into an array
+        $terms = explode(" ", $terms);
+
         //select statement for AND search
         $sql = "SELECT * FROM " . $this->tblTires . " WHERE 0 ";
 
@@ -116,7 +120,6 @@ class TireModel
         if ($query->num_rows == 0)
             return 0;
 
-        //search succeeded, and found at least 1 tire found.
         //create an array to store all the returned tires
         $tires = array();
 
@@ -133,8 +136,11 @@ class TireModel
         return $tires;
     }
 
+
+    //add tire to database
     public function create_tire(){
 
+        //exceptions handled with try, throw, catch
         try {
         //retrieve data for the new accessory; data are sanitized and escaped for security.
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -144,6 +150,8 @@ class TireModel
         $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
         $rating = filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING);
 
+
+            //if field empty, throw exception
             if($name == ""){
                 throw new RequiredValue("Tire name is missing in the Add a Tire form.");
             }
@@ -164,6 +172,8 @@ class TireModel
                 throw new RequiredValue("Tire rating is missing in the Add a Tire form.");
 
             }
+
+            //if datatype incorrect, throw exception
             if(!is_numeric($price)){
                 throw new Datatype(gettype($price), "number");
 
@@ -186,6 +196,7 @@ class TireModel
             $view->display($errmsg);
         }
 
+        // catch exceptions & display error message
         }
         catch (Datatype $e){
             $message = $e->getMessage();
@@ -204,9 +215,10 @@ class TireModel
         //generate a JSON object for the error response
         $response = array("message" => $message);
         echo json_encode($response);
-
-
     }
+
+
+    //delete function - delete tire from database
     public function delete_tire($id){
         $sql = "DELETE FROM " . $this->tblTires . " WHERE " . $this->tblTires . ".id='$id'";
 

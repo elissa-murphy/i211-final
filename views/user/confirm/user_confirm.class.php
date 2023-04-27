@@ -10,13 +10,11 @@
  */
 
 class UserConfirm extends UserIndexView {
-    public function display()
-    {
+    public function display() {
         //display page header
         parent::displayHeader("Confirmation");
-
-
         ?>
+
         <!DOCTYPE "HTML">
         <html>
     <head>
@@ -34,9 +32,8 @@ class UserConfirm extends UserIndexView {
             </a>
         </div>
     </div>
-
-
     </body>
+
         <?php
         //display page footer
         parent::displayFooter();

@@ -11,14 +11,15 @@
 
 class BikeSearch extends BikeIndexView
 {
-    public function display($terms, $bikes) {
+    public function display($terms, $bikes)
+    {
         //display page header
         parent::displayHeader("Search Results");
         ?>
         <div id="main-header"> Search Results for <i><?= $terms ?></i></div>
         <span class="rcd-numbers">
             <?php
-            echo ((!is_array($bikes)) ? "( 0 - 0 )" : "( 1 - " . count($bikes) . " )");
+            echo((!is_array($bikes)) ? "( 0 - 0 )" : "( 1 - " . count($bikes) . " )");
             ?>
         </span>
         <hr>
@@ -36,7 +37,7 @@ class BikeSearch extends BikeIndexView
                     $price = $bike->getPrice();
                     $image = $bike->getImage();
 
-                    if (strpos($image, "http://") === false AND strpos($image, "https://") === false) {
+                    if (strpos($image, "http://") === false and strpos($image, "https://") === false) {
                         $image = BASE_URL . "/" . BIKE_IMG . $image;
                     }
                     if ($i % 6 == 0) {
@@ -54,7 +55,7 @@ class BikeSearch extends BikeIndexView
             }
             ?>
         </div>
-        <a href="<?= BASE_URL ?>/bike/index">Go to bike list</a>
+        <a href="<?= BASE_URL ?>/bike/index">Go to Bike List</a>
         <?php
         //display page footer
         parent::displayFooter();

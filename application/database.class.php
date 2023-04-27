@@ -54,14 +54,19 @@ class Database {
         return $this->param['tblBikes'];
     }
 
+    //returns the name of the table that stores tires
     public function getTireTable() {
         return $this->param['tblTires'];
     }
 
+
+    //returns the name of the table that stores accessories
     public function getAccessoriesTable() {
         return $this->param['tblAccessories'];
     }
 
+
+    //returns the name of the table that stores users
     public function getUserTable() {
         return $this->param['tblUsers'];
     }
