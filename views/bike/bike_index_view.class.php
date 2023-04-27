@@ -11,7 +11,7 @@ class BikeIndexView extends IndexView {
         <div class="secondary-header">
         <div id="searchbar">
             <form method="get" action="<?= BASE_URL ?>/bike/search">
-                <input type="text" name="query-terms" id="searchtextbox" placeholder="Search bikes" autocomplete="off" onkeyup="handleKeyUp(event)">
+                <input type="text" name="query-terms" id="searchtextbox" placeholder="Search Bikes" autocomplete="off" onkeyup="handleKeyUp(event)">
                 <input class="searchGoBtn" type="submit" value="Go" />
             </form>
             <div id="suggestionDiv"></div>

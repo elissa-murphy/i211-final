@@ -95,7 +95,6 @@ class TireModel
             $sql .= " OR name LIKE '%$term%' OR price LIKE '%$term%' OR description LIKE '%$term%' ";
         }
 
-//echo $sql;
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -126,20 +125,7 @@ class TireModel
     }
 
     public function create_tire(){
-//        echo "confirm 2";
 
-
-
-        //if the script did not receive post data, display an error message and then terminate the script immediately
-//        if (!filter_has_var(INPUT_POST, 'name') ||
-//            !filter_has_var(INPUT_POST, 'maker') ||
-//            !filter_has_var(INPUT_POST, 'price') ||
-//            !filter_has_var(INPUT_POST, 'description') ||
-//            !filter_has_var(INPUT_POST, 'image') ||
-//            !filter_has_var(INPUT_POST, 'rating')
-//        ) {
-//            return false;
-//        }
         try {
         //retrieve data for the new accessory; data are sanitized and escaped for security.
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -150,23 +136,23 @@ class TireModel
         $rating = filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_STRING);
 
             if($name == ""){
-                throw new RequiredValue("Fatal Error Name is Missing");
+                throw new RequiredValue("Tire name is missing in the Add a Tire form.");
             }
             if($maker == ""){
-                throw new RequiredValue("Fatal Error Maker is Missing");
+                throw new RequiredValue("Tire maker is missing in the Add a Tire form.");
             }
             if($price == ""){
-                throw new RequiredValue("Fatal Error Price is Missing");
+                throw new RequiredValue("Tire price is missing in the Add a Tire form.");
             }
             if($description == ""){
-                throw new RequiredValue("Fatal Error Description is Missing");
+                throw new RequiredValue("Tire description is missing in the Add a Tire form.");
             }
             if($image == ""){
-                throw new RequiredValue("Fatal Error Image is Missing");
+                throw new RequiredValue("Tire image URL is missing in the Add a Tire form.");
 
             }
             if($rating == ""){
-                throw new RequiredValue("Fatal Error Rating is Missing");
+                throw new RequiredValue("Tire rating is missing in the Add a Tire form.");
 
             }
             if(!is_numeric($price)){
@@ -194,14 +180,14 @@ class TireModel
         }
         catch (Datatype $e){
             $message = $e->getMessage();
-//            return false;
+            $view = new ErrorView();
+            $view->display($message);
             exit();
         }
         catch (RequiredValue $e){
             $message = $e->getMessage();
             $view = new ErrorView();
             $view->display($message);
-//            return false;
             exit();
 
         }
@@ -215,9 +201,7 @@ class TireModel
     public function delete_tire($id){
         $sql = "DELETE FROM " . $this->tblTires . " WHERE " . $this->tblTires . ".id='$id'";
 
-
-
-//execute the query and handle errors
+        //execute the query and handle errors
         $query = $this->dbConnection->query($sql);
 
 
@@ -227,68 +211,5 @@ class TireModel
             $view = new ErrorView();
             $view->display($errmsg);
         }
-    }
-
-    public function add($id){
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        if (isset($_SESSION['cart'])) {
-            $cart = $_SESSION['cart'];
-        } else {
-            $cart = array();
-        }
-
-//retrieve id
-        $id = '';
-        if(filter_has_var(INPUT_GET, 'id')) {
-            $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-        }
-// If  id is empty, it is invalid.
-        if(!$id) {
-
-            die();
-        }
-
-        if (array_key_exists($id, $cart)) {
-            $cart[$id] = $cart[$id] + 1;
-        } else {
-            $cart[$id] = 1;
-        }
-
-//update the session variable
-        $_SESSION['cart'] = $cart;
-
-
-    }
-
-    public function shopping_cartT(){
-        if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
-            echo "Your shopping cart is empty.<br><br>";
-            exit();
-        }
-
-//proceed since the cart is not empty
-        $cart = $_SESSION['cart'];
-
-//select statement
-        $sql = "SELECT * FROM " . $this->tblTires . " WHERE 0";
-        foreach (array_keys($cart) as $id) {
-            $sql .= " OR id=$id";
-        }
-
-//execute the query
-        $query = $this->dbConnection->query($sql);
-
-//fetch Accessories
-        while ($row = $query->fetch_assoc()) {
-            $id = $row['id'];
-            $name = $row['name'];
-            $price = $row['price'];
-            $qty = $cart[$id];
-            $subtotal = $qty * $price;
-        }
-
     }
 }

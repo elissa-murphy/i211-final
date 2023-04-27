@@ -8,18 +8,18 @@ class UserModel
     static private $_instance = NULL;
     private $tblUsers;
 
-    //To use singleton pattern, this constructor is made private. To get an instance of the class, the getUserModel method must be called.
+    //constructor
     private function __construct() {
         $this->db = Database::getDatabase();
         $this->dbConnection = $this->db->getConnection();
         $this->tblUsers = $this->db->getUserTable();
 
-        //Escapes special characters in a string for use in an SQL statement. This stops SQL inject in POST vars.
+        //Escapes special characters in a string for use in an SQL statement
         foreach ($_POST as $key => $value) {
             $_POST[$key] = $this->dbConnection->real_escape_string($value);
         }
 
-        //Escapes special characters in a string for use in an SQL statement. This stops SQL Injection in GET vars
+        //Escapes special characters in a string for use in an SQL statement
         foreach ($_GET as $key => $value) {
             $_GET[$key] = $this->dbConnection->real_escape_string($value);
         }
@@ -65,34 +65,60 @@ class UserModel
     }
 
     public function create_user(){
-//        echo "confirm 2";
         //if the script did not receive post data, display an error message and then terminate the script immediately
-        if (!filter_has_var(INPUT_POST, 'firstName') ||
-            !filter_has_var(INPUT_POST, 'lastName') ||
-            !filter_has_var(INPUT_POST, 'email')
-        ) {
-            return false;
+//        if (!filter_has_var(INPUT_POST, 'firstName') ||
+//            !filter_has_var(INPUT_POST, 'lastName') ||
+//            !filter_has_var(INPUT_POST, 'email')
+//        ) {
+//            return false;
+//        }
+
+
+
+        try {
+            //retrieve data for the new accessory; data are sanitized and escaped for security.
+            $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
+            $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+
+
+            if ($firstName == "") {
+                throw new RequiredValue("First name is missing in community sign up form.");
+            }
+            if ($lastName == "") {
+                throw new RequiredValue("Last name is missing in community sign up form.");
+            }
+            if ($email == "") {
+                throw new RequiredValue("Email is missing in community sign up form.");
+            }
+
+
+            //query string
+            $sql = "INSERT INTO " . $this->tblUsers . " VALUES (NULL, '$firstName', '$lastName','$email')";
+
+            //execute the query
+            $query = $this->dbConnection->query($sql);
+
+            //if no query, set error message
+            if (!$query) {
+                $errmsg = $this->dbConnection->error;
+                echo $errmsg;
+                $view = new ErrorView();
+                $view->display($errmsg);
+            }
         }
+        catch (RequiredValue $e){
+                $message = $e->getMessage();
+                $view = new ErrorView();
+                $view->display($message);
+                exit();
 
-        //retrieve data for the new accessory; data are sanitized and escaped for security.
-        $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
-        $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-
-        //query string
-        $sql = "INSERT INTO " . $this->tblUsers . " VALUES (NULL, '$firstName', '$lastName','$email')";
-
-        //execute the query
-        $query =  $this->dbConnection->query($sql);
-
-        //if no query, set error message
-        if(!$query){
-            $errmsg = $this->dbConnection->error;
-            echo $errmsg;
-            $view = new ErrorView();
-            $view->display($errmsg);
-        }
+            }
+ //generate a JSON object for the error response
+        $response = array("message" => $message);
+        echo json_encode($response);
 
 
     }
+
 }

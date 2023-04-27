@@ -96,7 +96,6 @@ class BikeModel {
             $sql .= " OR name LIKE '%$term%' OR price LIKE '%$term%' OR description LIKE '%$term%' ";
         }
 
-//    echo $sql;
 
         //execute the query
         $query = $this->dbConnection->query($sql);
@@ -127,16 +126,6 @@ class BikeModel {
     }
 
     public function create_bike(){
-//        echo "confirm 2";
-        //if the script did not receive post data, display an error message and then terminate the script immediately
-//        if (!filter_has_var(INPUT_POST, 'name') ||
-//            !filter_has_var(INPUT_POST, 'maker') ||
-//            !filter_has_var(INPUT_POST, 'price') ||
-//            !filter_has_var(INPUT_POST, 'description') ||
-//            !filter_has_var(INPUT_POST, 'image')
-//        ) {
-//            return false;
-//        }
         try {
         //retrieve data for the new accessory; data are sanitized and escaped for security.
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -146,19 +135,19 @@ class BikeModel {
         $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
 
             if($name == ""){
-                throw new RequiredValue("Fatal Error Name is Missing");
+                throw new RequiredValue("Bike name is missing in the Add a Bike form.");
             }
             if($maker == ""){
-                throw new RequiredValue("Fatal Error Maker is Missing");
+                throw new RequiredValue("Bike maker is missing in the Add a Bike form.");
             }
             if($price == ""){
-                throw new RequiredValue("Fatal Error Price is Missing");
+                throw new RequiredValue("Bike price is missing in the Add a Bike form.");
             }
             if($description == ""){
-                throw new RequiredValue("Fatal Error Description is Missing");
+                throw new RequiredValue("Bike description is missing in the Add a Bike form.");
             }
             if($image == ""){
-                throw new RequiredValue("Fatal Error Image is Missing");
+                throw new RequiredValue("Bike image URL is missing in the Add a Bike form.");
             }
             if(!is_numeric($price)){
                 throw new Datatype(gettype($price), "number");
@@ -182,6 +171,8 @@ class BikeModel {
         }
         catch (Datatype $e){
             $message = $e->getMessage();
+            $view = new ErrorView();
+            $view->display($message);
             exit();
         }
         catch (RequiredValue $e){
@@ -194,18 +185,13 @@ class BikeModel {
         //generate a JSON object for the error response
         $response = array("message" => $message);
         echo json_encode($response);
-
-
     }
 
     public function delete_bike($id){
         $sql = "DELETE FROM " . $this->tblBikes . " WHERE " . $this->tblBikes . ".id='$id'";
 
-
-
-//execute the query and handle errors
+    //execute the query and handle errors
         $query = $this->dbConnection->query($sql);
-
 
         if(!$query){
             $errmsg = $this->dbConnection->error;
@@ -214,34 +200,4 @@ class BikeModel {
             $view->display($errmsg);
         }
     }
-
-    public function shopping_cartB(){
-        if (!isset($_SESSION['cart']) || !$_SESSION['cart']) {
-            echo "Your shopping cart is empty.<br><br>";
-            exit();
-        }
-
-//proceed since the cart is not empty
-        $cart = $_SESSION['cart'];
-
-//select statement
-        $sql = "SELECT * FROM " . $this->tblBikes. " WHERE 0";
-        foreach (array_keys($cart) as $id) {
-            $sql .= " OR id=$id";
-        }
-
-//execute the query
-        $query = $this->dbConnection->query($sql);
-
-//fetch Accessories
-        while ($row = $query->fetch_assoc()) {
-            $id = $row['id'];
-            $name = $row['name'];
-            $price = $row['price'];
-            $qty = $cart[$id];
-            $subtotal = $qty * $price;
-        }
-
-    }
-
 }

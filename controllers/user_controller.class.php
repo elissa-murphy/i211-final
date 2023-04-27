@@ -44,17 +44,5 @@ class UserController
             $view = new UserConfirm();
             $view->display();
         }
-
-
     }
-
-
-    //handle an error
-//    public function error($message) {
-//        //create an object of the Error class
-//        $error = new AccessoryError();
-//        //display the error page
-//        $error->display($message);
-//    }
-
 }

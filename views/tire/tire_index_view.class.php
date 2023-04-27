@@ -2,6 +2,7 @@
 
 class TireIndexView extends IndexView
 {
+    //display header and footer
     public static function displayHeader($title) {
         parent::displayHeader($title)
         ?>
@@ -12,7 +13,7 @@ class TireIndexView extends IndexView
         <div class="secondary-header">
         <div id="searchbar">
                         <form method="get" action="<?= BASE_URL ?>/tire/search">
-                            <input type="text" name="query-terms" id="searchtextbox" placeholder="Search tires" autocomplete="off" onkeyup="handleKeyUp(event)">
+                            <input type="text" name="query-terms" id="searchtextbox" placeholder="Search Tires" autocomplete="off" onkeyup="handleKeyUp(event)">
                             <input class="searchGoBtn" type="submit" value="Go" />
                         </form>
                         <div id="suggestionDiv"></div>

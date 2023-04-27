@@ -57,7 +57,7 @@ class WelcomeIndex extends IndexView {
         <div class="community-section">
             <div class="community-sectionInfo"><p>Join the Community List.</p></div>
             <div class="community-sectionBtn">
-                <a href="<?= BASE_URL ?>/user/index">Sign Up</a>
+                <a href="<?= BASE_URL ?>/user/create">Sign Up</a>
             </div>
         </div>
 

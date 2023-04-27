@@ -125,16 +125,7 @@ class AccessoryModel
     }
 
     public function create_accessory(){
-//        echo "confirm 2";
-        //if the script did not receive post data, display an error message and then terminate the script immediately
-//        if (!filter_has_var(INPUT_POST, 'name') ||
-//            !filter_has_var(INPUT_POST, 'maker') ||
-//            !filter_has_var(INPUT_POST, 'price') ||
-//            !filter_has_var(INPUT_POST, 'description') ||
-//            !filter_has_var(INPUT_POST, 'image')
-//        ) {
-//            return false;
-//        }
+
         try {
         //retrieve data for the new accessory; data are sanitized and escaped for security.
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -144,19 +135,19 @@ class AccessoryModel
         $image = filter_input(INPUT_POST, 'image', FILTER_SANITIZE_STRING);
 
             if($name == ""){
-                throw new RequiredValue("Fatal Error Name is Missing");
+                throw new RequiredValue("Accessory name is missing in the Add a Accessory form.");
             }
             if($maker == ""){
-                throw new RequiredValue("Fatal Error Maker is Missing");
+                throw new RequiredValue("Accessory maker is missing in Add a Accessory form.");
             }
             if($price == ""){
-                throw new RequiredValue("Fatal Error Price is Missing");
+                throw new RequiredValue("Accessory price is missing in the Add a Accessory form.");
             }
             if($description == ""){
-                throw new RequiredValue("Fatal Error Description is Missing");
+                throw new RequiredValue("Accessory description is missing in the Add a Accessory form.");
             }
             if($image == ""){
-                throw new RequiredValue("Fatal Error Image is Missing");
+                throw new RequiredValue("Accessory image URL is missing in the Add a Accessory form.");
             }
             if(!is_numeric($price)){
                 throw new Datatype(gettype($price), "number");
@@ -192,18 +183,13 @@ class AccessoryModel
         //generate a JSON object for the error response
         $response = array("message" => $message);
         echo json_encode($response);
-
-
     }
 
     public function delete_accessory($id){
         $sql = "DELETE FROM " . $this->tblAccessories . " WHERE " . $this->tblAccessories . ".id='$id'";
 
-
-
-//execute the query and handle errors
+        //execute the query and handle errors
         $query = $this->dbConnection->query($sql);
-
 
         if(!$query){
             $errmsg = $this->dbConnection->error;

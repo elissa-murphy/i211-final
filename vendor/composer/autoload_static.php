@@ -27,8 +27,6 @@ class ComposerStaticInitb6f7ef2b47157929328fd64e686a7688
         'BikeIndexView' => __DIR__ . '/../..' . '/views/bike/bike_index_view.class.php',
         'BikeModel' => __DIR__ . '/../..' . '/models/bike_model.class.php',
         'BikeSearch' => __DIR__ . '/../..' . '/views/bike/search/bike_search.class.php',
-        'CartController' => __DIR__ . '/../..' . '/controllers/cart_controller.class.php',
-        'CartIndexView' => __DIR__ . '/../..' . '/views/cart/cart_index_view.class.php',
         'ComposerAutoloaderInitb6f7ef2b47157929328fd64e686a7688' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInitb6f7ef2b47157929328fd64e686a7688' => __DIR__ . '/..' . '/composer/autoload_static.php',
