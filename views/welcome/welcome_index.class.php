@@ -1,4 +1,12 @@
 <?php
+/*
+ * Author: Elissa Murphy & Jacob Catalan
+ * Date: April 28, 2023
+ * File: I211 Final: MVC Project
+ * Description: The Bike Shop Application is a one-stop-shop for bikes and bike supplies.
+ *              The purpose of the application is to create one online destination for all information biking needs.
+ *
+ */
 
 class WelcomeIndex extends IndexView {
 
@@ -8,33 +16,7 @@ class WelcomeIndex extends IndexView {
         ?>
             <div id="hero-image" style="max-height: 400px;">
                 <img src="<?= BASE_URL ?>/www/img/bikeHero.jpeg" style="max-height: 400px; width: 100%;" title="Bike Hero"/>
-<!--                <div id="main-header">Welcome to the bike shop!</div>-->
             </div>
-
-<!--        <br>-->
-<!--        <table style="border: none; width: 700px; margin: 5px auto">-->
-<!--            <tr>-->
-<!--                <td colspan="2" style="text-align: center"><strong>Major features include:</strong></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td style="text-align: left">-->
-<!--                    <ul>-->
-<!--                        <li>Feature 1</li>-->
-<!--                        <li>Feature 2</li>-->
-<!--                        <li>Feature 3</li>-->
-<!--                        <li>Feature 4</li>-->
-<!--                    </ul>-->
-<!--                </td>-->
-<!--                <td style="text-align: left">-->
-<!--                    <ul>-->
-<!--                        <li>Feature 1</li>-->
-<!--                        <li>Feature 2</li>-->
-<!--                        <li>Feature 3</li>-->
-<!--                        <li>Feature 4</li>-->
-<!--                    </ul></td>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!---->
         <br>
         <h2 style="text-align: center;">Explore our Bikes, Tires, and Accessories</h2>
         <div id="thumbnails" style="display: flex; justify-content: space-evenly; text-align: center; border: none;">

@@ -1,11 +1,12 @@
 <?php
 /*
- * Author: Louie Zhu
- * Date: Mar 6, 2016
- * Name: index_view.class.php
- * Description: the parent class for all view classes. The two functions display page header and footer.
+ * Author: Elissa Murphy & Jacob Catalan
+ * Date: April 28, 2023
+ * File: I211 Final: MVC Project
+ * Description: The Bike Shop Application is a one-stop-shop for bikes and bike supplies.
+ *              The purpose of the application is to create one online destination for all information biking needs.
+ *
  */
-
 class IndexView {
     //this method displays the page header
     static public function displayHeader($page_title) {

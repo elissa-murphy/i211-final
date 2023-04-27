@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * Author: Elissa Murphy & Jacob Catalan
+ * Date: April 28, 2023
+ * File: I211 Final: MVC Project
+ * Description: The Bike Shop Application is a one-stop-shop for bikes and bike supplies.
+ *              The purpose of the application is to create one online destination for all information biking needs.
+ *
+ */
+
 class TireDetail extends TireIndexView
 {
     public function display($tire, $confirm = "") {
@@ -19,35 +28,6 @@ class TireDetail extends TireIndexView
             $image = BASE_URL . '/' . TIRE_IMG . $image;
         }
         ?>
-
-<!--        <h2 id="main-header">--><?//= $name ?><!--</h2>-->
-<!--        <div style="padding-bottom: 150px;">-->
-<!--            <div style="display: flex; justify-content: space-evenly;">-->
-<!--                <div>-->
-<!--                    <div style="width: 350px; height: 350px;">-->
-<!--                      <img src="--><?//= $image ?><!--" alt="Tire Main" style='width: 350px;height: 250px;'/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <div style="display: flex; justify-content: space-evenly;">-->
-<!--                        <p style="padding: 0px 10px 0px 10px">Maker: --><?//= $maker ?><!--</p>-->
-<!--                        <p style="padding: 0px 10px 0px 10px">Rating: --><?//= $rating ?><!--/10</p>-->
-<!--                        <p style="padding: 0px 10px 0px 10px">Price:--><?//= $price ?><!--</p>-->
-<!--                    </div>-->
-<!--                    <div>-->
-<!--                        <p style="width: 400px;">Description: --><?//= $description ?><!--</p>-->
-<!--                    </div>-->
-<!--                    <div id="confirm-message">--><?//= $confirm ?><!--</div>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--            <div id="create">-->
-<!--                <form method="get" action="--><?//= BASE_URL ?><!--/tire/confirm_delete/--><?//=$id?><!--">-->
-<!--                    <input type="submit" value="Delete Tire" />-->
-<!--                </form>-->
-<!--            </div>-->
-
-
             <h2 id="main-header"><?= $name ?></h2>
             <!-- display tire details -->
             <div class="detailPage-container">

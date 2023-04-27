@@ -1,6 +1,8 @@
 head,
 footer,
-body {
+body,
+button,
+a {
     font-family: "Gill Sans", sans-serif;
 }
 
