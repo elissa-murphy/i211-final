@@ -12,13 +12,13 @@ class BikeIndexView extends IndexView {
         <div id="searchbar">
             <form method="get" action="<?= BASE_URL ?>/bike/search">
                 <input type="text" name="query-terms" id="searchtextbox" placeholder="Search bikes" autocomplete="off" onkeyup="handleKeyUp(event)">
-                <input type="submit" value="Go" />
+                <input class="searchGoBtn" type="submit" value="Go" />
             </form>
             <div id="suggestionDiv"></div>
         </div>
             <div id="create">
                 <form method="get" action="<?= BASE_URL ?>/bike/create">
-                    <input type="submit" value="Add Bikes" />
+                    <input class="searchGoBtn" type="submit" value="Add Bikes" />
                 </form>
             </div>
         </div>

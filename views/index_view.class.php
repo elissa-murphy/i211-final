@@ -28,20 +28,20 @@ class IndexView {
                     <a href="<?= BASE_URL ?>/index.php" style="text-decoration: none" title="Bike Shop">
                          <div id="left">
 <!--                    <img src='--><?//= BASE_URL ?><!--/www/img/logo.png' style="width: 180px; border: none" />-->
-                             <span style='color: #fffffa; font-size: 36pt; font-weight: bold; vertical-align: top'>The Bike shop.</span>
+                             <span style='color: #fffffa; font-size: 36pt; font-weight: bold; vertical-align: top'>The Bike Shop.</span>
                         </div>
                     </a>
                      <div id="right" style="display: flex;">
-                  <a style="color: white;" href="<?= BASE_URL ?>/bike/index">
+                  <a class="nav_link" style="color: white;" href="<?= BASE_URL ?>/bike/index">
                          <div>Bikes</div>
                          </a>
-                         <a style="color: white; padding: 0px 15px;" href="<?= BASE_URL ?>/tire/index">
+                         <a class="nav_link" style="color: white; padding: 0px 15px;" href="<?= BASE_URL ?>/tire/index">
                              <div>Tires</div>
                          </a>
-                         <a style="color: white;" href="<?= BASE_URL ?>/accessory/index">
+                         <a class="nav_link" style="color: white;" href="<?= BASE_URL ?>/accessory/index">
                              <div>Accessories</div>
                          </a>
-                          <a style="color: white; padding-left: 15px;" href="<?= BASE_URL ?>/user/index">
+                          <a class="nav_link" style="color: white; padding-left: 15px;" href="<?= BASE_URL ?>/user/index">
                              <div>Community</div>
                          </a>
 <!--                         <a style="color: white; padding-left: 15px;" href="--><?//= BASE_URL ?><!--/cart/index">-->

@@ -13,13 +13,13 @@ class TireIndexView extends IndexView
         <div id="searchbar">
                         <form method="get" action="<?= BASE_URL ?>/tire/search">
                             <input type="text" name="query-terms" id="searchtextbox" placeholder="Search tires" autocomplete="off" onkeyup="handleKeyUp(event)">
-                            <input type="submit" value="Go" />
+                            <input class="searchGoBtn" type="submit" value="Go" />
                         </form>
                         <div id="suggestionDiv"></div>
         </div>
             <div id="create">
                 <form method="get" action="<?= BASE_URL ?>/tire/create">
-                    <input type="submit" value="Add Tires" />
+                    <input class="searchGoBtn" type="submit" value="Add Tires" />
                 </form>
             </div>
         </div>

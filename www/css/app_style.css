@@ -1,3 +1,28 @@
+head,
+footer,
+body {
+    font-family: "Gill Sans", sans-serif;
+}
+
+
+.thumbnailLink {
+    text-decoration: none;
+    color: black;
+}
+
+.thumbnailLink:hover {
+    text-decoration: underline;
+}
+
+.nav_link {
+    text-decoration: none;
+    color: black;
+}
+
+.nav_link:hover {
+    text-decoration: underline;
+}
+
 .bike-grid-container {
     display: flex;
     justify-content: space-evenly;
@@ -159,7 +184,8 @@ form.new-media input {
     padding: 15px;
     border-radius: 20px;
     margin-left: 20px;
-    display: inline;
+    display: inline-block;
+    height: 100px;
 }
 
 .detailPage-Desc {
@@ -226,4 +252,76 @@ form.new-media input {
     border: none;
     outline: none;
     border-radius: 15px;
+}
+
+.community-section {
+    margin: 0 auto;
+    margin-top: 64px;
+    height: 100px;
+    width: 100%;
+    background: #65853e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.community-sectionInfo {
+    font-size: 24px;
+    padding-right: 100px;
+    color: white;
+}
+
+.community-sectionBtn a {
+    padding: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    background-color: #506931;
+    color: white;
+    border: 2px solid #506931;
+}
+
+.community-sectionBtn a:hover {
+    background-color: white;
+    color: #506931;
+}
+
+
+.itemLink {
+    text-decoration: none;
+    color: black;
+}
+
+.itemLink:hover {
+    text-decoration: underline;
+}
+
+.communityContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.communityContainer table {
+    background-color: #506931;
+    padding: 35px;
+    border-radius: 25px;
+}
+
+.communityContainer table th {
+    color: white;
+    padding: 0px 40px;
+}
+
+.communityContainer table td {
+    padding: 0px 40px;
+}
+
+.communityContainer table td a {
+    color: black;
+}
+
+.communityContainer table td a:hover {
+    color: white;
 }

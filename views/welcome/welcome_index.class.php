@@ -36,24 +36,30 @@ class WelcomeIndex extends IndexView {
 <!--        </table>-->
 <!---->
         <br>
-        <h2 style="text-align: center;">Explore our bikes, tires, and accessories</h2>
+        <h2 style="text-align: center;">Explore our Bikes, Tires, and Accessories</h2>
         <div id="thumbnails" style="display: flex; justify-content: space-evenly; text-align: center; border: none;">
-            <a href="<?= BASE_URL ?>/bike/index">
+            <a class="thumbnailLink" href="<?= BASE_URL ?>/bike/index">
                 <img style="max-height: 200px; max-width: 250px; min-height: 200px; min-width: 250px;" src="<?= BASE_URL ?>/www/img/bikeFeature.jpeg" title="Bike Library"/>
                 <div>Bikes</div>
             </a>
-            <a href="<?= BASE_URL ?>/tire/index">
+            <a class="thumbnailLink" href="<?= BASE_URL ?>/tire/index">
                 <img style="max-height: 200px; max-width: 250px; min-height: 200px; min-width: 250px;" src="<?= BASE_URL ?>/www/img/tireFeature.jpeg" title="Tire Library"/>
 
                 <div>Tires</div>
             </a>
-            <a href="<?= BASE_URL ?>/accessory/index">
+            <a class="thumbnailLink" href="<?= BASE_URL ?>/accessory/index">
                 <img style="max-height: 200px; max-width: 250px; min-height: 200px; min-width: 250px;" src="<?= BASE_URL ?>/www/img/accessoriesFeature.jpeg" title="Accessories Library" />
 
                 <div>Accessories</div>
             </a>
         </div>
-        <br>
+
+        <div class="community-section">
+            <div class="community-sectionInfo"><p>Join the Community List.</p></div>
+            <div class="community-sectionBtn">
+                <a href="<?= BASE_URL ?>/user/index">Sign Up</a>
+            </div>
+        </div>
 
         <?php
         //display page footer

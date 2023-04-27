@@ -6,7 +6,7 @@ class UserIndex extends UserIndexView
         //display page header
         parent::displayHeader("All Users");
         ?>
-
+<div class="communityContainer">
     <h2>Users in the Community</h2>
         <table>
         <tr>
@@ -23,7 +23,7 @@ class UserIndex extends UserIndexView
                 echo "<tr>";
                 echo "<td>" . $user->getfirstName() . "</td>";
                 echo "<td>" . $user->getlastName() . "</td>";
-                echo "<td>" . $user->getEmail() . "</td>";
+                echo "<td><a href='mailto:$user->getEmail()'>" . $user->getEmail() . "</a></td>";
                 echo "</tr>";
             }
         }
@@ -32,9 +32,10 @@ class UserIndex extends UserIndexView
         <br><br><br><br>
 
         <div>
-        <a href="<?= BASE_URL ?>/user/create">Sign up for the Community List</a>
+        <a class="backBtn" href="<?= BASE_URL ?>/user/create">Sign up for the Community List</a>
             <br><br><br><br>
     </div>
+</div>
         <?php
         //display page footer
         parent::displayFooter();

@@ -27,8 +27,8 @@ class AccessoryIndex extends AccessoryIndexView
                         echo "<div style='display: flex; justify-content: space-evenly; align-items: center; flex-wrap: wrap; '>";
                     }
 
-                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding: 32px; flex-direction: row; flex-wrap: wrap;'><p><a href='", BASE_URL, "/accessory/detail/$id'><img src='" . $image .
-                        "' style='width: 200px;height: 150px;display: block;'><span>$name</a><br>" . $price . "</span></p></div>";
+                    echo "<div class='bike-grid-col' style='display: flex; justify-content: space-evenly; padding: 32px; flex-direction: row; flex-wrap: wrap;'><p><a class='itemLink' href='", BASE_URL, "/accessory/detail/$id'><img src='" . $image .
+                        "' style='width: 200px;height: 150px;display: block;'><span>$name</a><br>$" . $price . "</span></p></div>";
                     ?>
                     <?php
                     if ($i % 6 == 5 || $i == count($accessories) - 1) {
